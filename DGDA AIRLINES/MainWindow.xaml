@@ -5,10 +5,34 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DGDA_AIRLINES"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Login" Height="450" Width="455">
     <Grid>
-        <Button x:Name="btnlogin" Content="login" HorizontalAlignment="Left" Height="81" Margin="530,306,0,0" VerticalAlignment="Top" Width="184"/>
-        <Label Content="Bienvenidos" HorizontalAlignment="Left" Margin="300,45,0,0" VerticalAlignment="Top" Width="390" Height="48"/>
+        <Grid.RowDefinitions>
+            <RowDefinition>
+            </RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Border  CornerRadius="10 ">
+            <Border.Background>
+                <LinearGradientBrush >
+                    <GradientStop Color="#7be9f6" Offset="0.0"/>
+                    <GradientStop Color= "#f083da" Offset="1"/>
+                </LinearGradientBrush>
+            </Border.Background>
+        </Border>
+        <StackPanel >
+            <Image Source="imagenes/avion1.png" Height="113" Margin="140,0,151,0"/>
+            <TextBlock Text="LOGIN DGDA AERLINES" FontSize="20" FontWeight="Light" FontFamily="helvetica" Foreground="White"
+                        HorizontalAlignment="Center" Margin="120,0,0,0" Width="327" Height="28" />
+        </StackPanel>
+
+        <StackPanel Grid.Row="1">
+            <TextBox FontFamily="Helvitica" FontWeight="Light" Text="Username" FontSize="20" HorizontalAlignment="Left"
+                     Foreground="White" Background="Transparent" Width="106" HorizontalContentAlignment="Left"
+                     Opacity="0.5"  />
+        </StackPanel>
+
+
 
     </Grid>
 </Window>

@@ -97,5 +97,8 @@
   <ItemGroup>
     <Content Include="DGDA Aerlines.sql" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Imagenes\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
