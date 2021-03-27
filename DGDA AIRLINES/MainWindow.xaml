@@ -26,8 +26,8 @@
 
 
             <StackPanel VerticalAlignment="Center">
-                <Image Source="Imagenes/avion2.png" Width="80"/>
-                <TextBlock Text="Login aerlines"
+                <Image Source="Imagenes/logo.jpeg" Width="330"  />
+                <TextBlock Text="Login "
                            FontWeight="Light"
                            FontFamily="helvetica"
                            FontSize="20"
@@ -51,13 +51,13 @@
                     </StackPanel>
                     <StackPanel Margin="5" HorizontalAlignment="Center">
                         <Button Width="100" Height="40" Style="{StaticResource MaterialDesignRaisedButton}" 
-                         materialDesign:ButtonAssist.CornerRadius="10" BorderThickness="2" BorderBrush="#f083da"
+                         materialDesign:ButtonAssist.CornerRadius="10" BorderThickness="2" BorderBrush="	#FFE4E1"
                          Background="Transparent" Foreground="White" ToolTip="Login" FontSize="18" x:Name="btnLogin" Click="btnLogin_Click" Content="Login">
                         </Button>
                     </StackPanel>
-                    <StackPanel Orientation="Vertical" Width="80">
-                        <Button Margin="5 0" Style="{StaticResource MaterialDesignFloatingActionButton}" Background="{x:Null}"
-                 ToolTip="Close" x:Name="btnExit" Click="btnExit_Click" >
+                    <StackPanel Orientation="Vertical" Margin="115,0" Height="42">
+                        <Button Style="{StaticResource MaterialDesignRaisedButton}" Background="{x:Null}"
+                 ToolTip="Close" x:Name="btnExit" Click="btnExit_Click" materialDesign:ButtonAssist.CornerRadius="10" BorderThickness="2" BorderBrush="	#FFE4E1" >
                             <materialDesign:PackIcon Kind="Close" Foreground="White" Width="30" Height="30" />
                         </Button>
                     </StackPanel>
