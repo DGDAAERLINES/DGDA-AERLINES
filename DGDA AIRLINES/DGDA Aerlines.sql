@@ -30,7 +30,7 @@ create table Usuarios.usuario(
 
 create table Aerlines.Pais (
 	id int not null,
-	nombre varchar (80),
+	nombre varchar (15),
 	constraint Pk_Pais_id
 	primary key  CLUSTERED  (id)
  )
