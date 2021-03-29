@@ -12,7 +12,7 @@ namespace DGDA_AIRLINES
     class Usuario
     {
         // Variables miembro
-        private static string connectionString = ConfigurationManager.ConnectionStrings["DGDA_AIRLINES.Properties.Settings.DGDAaerlines"].ConnectionString;
+        private static string connectionString = ConfigurationManager.ConnectionStrings["DGDA_AIRLINES.Properties.Settings.DGDA AerlinesConnectionString"].ConnectionString;
         private SqlConnection sqlConnection = new SqlConnection(connectionString);
 
         // Propiedades

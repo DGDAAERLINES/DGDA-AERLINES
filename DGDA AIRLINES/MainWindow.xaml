@@ -27,7 +27,7 @@
 
             <StackPanel VerticalAlignment="Center">
                 <Image Source="Imagenes/logo.jpeg" Width="330"  />
-                <TextBlock Text="WELCOME TO LOGIN "
+                <TextBlock Text="Login "
                            FontWeight="Light"
                            FontFamily="helvetica"
                            FontSize="20"
