@@ -161,3 +161,113 @@ ALTER TABLE Aerlines.vuelo WITH CHECK
 	ADD CONSTRAINT CHK_Aerlines_Vuelo$VerificarFechaSalida
 	CHECK (fechaSalida > fechaLlegada)
 GO
+
+----------------------------------------------------------------PROCEDIMIENTOS-------------------------------------------------------------------------
+
+create procedure CONSULTAR_PAIS
+@id int
+AS
+BEGIN
+	select nombre as 'Nombre' from Aerlines.Pais where id like '%' +@id+ '%'
+END
+GO
+create procedure INSERTAR_PAIS
+@id int,
+@nombre varchar(80)
+AS
+BEGIN
+	if exists (select nombre from Aerlines.Pais where id = @id)
+	raiserror ('Ya existe ese pais, porfavor ingrese uno nuevo',16,1)
+	else
+	insert into Aerlines.Pais(id, nombre)
+	values(@id, @nombre)
+END
+GO
+
+create procedure MODIFICAR_NOMBRE_PAIS
+@id int,
+@nombre varchar(80)
+AS
+BEGIN
+	update Aerlines.Pais
+	set nombre = @nombre
+	where id = @id
+END
+GO
+
+create procedure MODIFICAR_CODIGO_PAIS
+@id int,
+@nombre varchar(80)
+AS
+BEGIN
+	update Aerlines.Pais
+	set id = @id
+	where nombre = @nombre
+END
+GO
+
+create procedure ELIMINAR_PAIS
+@id int
+AS
+BEGIN
+	delete from Aerlines.Pais 
+	where id = @id
+END
+GO
+
+create procedure CONSULTAR_PASAJERO
+@id int
+AS
+BEGIN
+	select nombre as 'Nombre', apellido as 'Apellido', idPais as 'ID Pais', sexo as 'Sexo', edad as 'Edad', telefono as 'Telefono', idTipoVisa as 'ID Tipo Visa',
+	idPasaporte as 'ID Pasaporte' 
+	from Aerlines.Pasajero where idPasajero like '%' +@id+ '%'
+END
+GO
+create procedure INSERTAR_PASAJERO
+@id int,
+@nombre varchar(80),
+@apellido varchar(45),
+@idPais int,
+@sexo char(1),
+@edad char(2),
+@telefono varchar(20),
+@idTipoVisa int,
+@idPasaporte char(1)
+AS
+BEGIN
+	if exists (select idPasaporte from Aerlines.Pasajero where idPasajero = @id)
+	raiserror ('Ya existe ese pasajero, porfavor ingrese uno nuevo',16,1)
+	else
+	insert into Aerlines.Pasajero(idPasajero, nombre, apellido, idPais, sexo, edad, telefono, idTipoVisa, idPasaporte)
+	values(@id, @nombre, @apellido, @idPais, @sexo, @edad, @telefono, @idTipoVisa, @idPasaporte)
+END
+GO
+
+create procedure MODIFICAR_PASAJERO
+@id int,
+@nombre varchar(80),
+@apellido varchar(45),
+@idPais int,
+@sexo char(1),
+@edad char(2),
+@telefono varchar(20),
+@idTipoVisa int,
+@idPasaporte char(1)
+AS
+BEGIN
+	update Aerlines.Pasajero
+	set nombre = @nombre, apellido = @apellido, idPais = @idPais, sexo = @sexo, edad = @edad, telefono = @telefono, idTipoVisa = @idTipoVisa, idPasaporte = @idPasaporte
+	where idPasajero = @id
+END
+GO
+
+create procedure ELIMINAR_PASAJERO
+@id int
+AS
+BEGIN
+	delete from Aerlines.Pasajero 
+	where idPasajero = @id
+END
+GO
+
