@@ -131,6 +131,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="DGDA Aerlines.sql" />
+    <Resource Include="Logo F.png" />
+    <Resource Include="Logofinal.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Imagenes\" />

@@ -6,7 +6,7 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:DGDA_AIRLINES"
         mc:Ignorable="d"
-        Title="Login" Height="450" Width="455">
+        Title="Login" Height="450" Width="455" VerticalAlignment="Center" HorizontalAlignment="Center" WindowStyle="None" AllowsTransparency="True" WindowState="Maximized" Cursor="Hand">
     <Grid>
         <Grid>
             <Grid.RowDefinitions>
@@ -15,7 +15,7 @@
             </Grid.RowDefinitions>
 
 
-            <Border CornerRadius="10" Grid.RowSpan="2">
+            <Border CornerRadius="10" Grid.RowSpan="2" Cursor="Hand">
                 <Border.Background>
                     <LinearGradientBrush>
                         <GradientStop Color="#f083da" Offset="0.0"/>
@@ -26,13 +26,16 @@
 
 
             <StackPanel VerticalAlignment="Center">
-                <Image Source="Imagenes/logo.jpeg" Width="330"  />
-                <TextBlock Text="Login "
+                <TextBlock Text=" "
                            FontWeight="Light"
                            FontFamily="helvetica"
                            FontSize="20"
                            Foreground="White"
-                           HorizontalAlignment="Center"/>
+                           HorizontalAlignment="Center" Height="146" Margin="50,0,53,0" Width="352" Cursor="Hand">
+                    <TextBlock.Background>
+                        <ImageBrush ImageSource="Logo F.png"/>
+                    </TextBlock.Background>
+                </TextBlock>
             </StackPanel>
 
 
@@ -40,7 +43,7 @@
             <StackPanel Grid.Row="1"
                 Width="350">
                 <StackPanel Margin="10 2">
-                    
+
                     <StackPanel Orientation="Horizontal" Margin=" 5">
                         <materialDesign:PackIcon Kind="User" Width="30" Height="30" Foreground="White"/>
                         <TextBox x:Name="txtUsername" Margin="10 0" FontSize="18" materialDesign:HintAssist.Hint="Enter Username " Foreground="White" Width="250" BorderBrush="White" CaretBrush="#FFD94448" SelectionBrush="#FFD94448" />
