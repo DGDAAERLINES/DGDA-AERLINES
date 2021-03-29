@@ -26,8 +26,8 @@ namespace DGDA_AIRLINES.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source = (local)\\sqlexpress; Initial Catalog = DGDA Aerlines; Integrated Sec" +
-            "urity = true;")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-JRBU49C;Initial Catalog=DGDAaerlines;Integrated Security=True" +
+            "")]
         public string DGDA_AIRLINES {
             get {
                 return ((string)(this["DGDA_AIRLINES"]));
