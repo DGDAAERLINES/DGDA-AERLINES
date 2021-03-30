@@ -27,10 +27,9 @@ create table Usuarios.usuario(
 )
 
 --Tabla pais--
-
 create table Aerlines.Pais (
-	id int not null,
-	nombre varchar (15),
+	id int not null IDENTITY (500, 1),
+	nombre varchar (50),
 	constraint Pk_Pais_id
 	primary key  CLUSTERED  (id)
  )
@@ -38,28 +37,45 @@ go
 
 
 
---tabla pasajero--
-CREATE TABLE  Aerlines.Pasajero (
-  idPasajero INT NOT NULL,
-  nombre VARCHAR(45) NOT NULL,
-  apellido VARCHAR(45) NOT NULL,
-  idPais INT NOT NULL,
+--/ tabla pasajero--
+create TABLE  Aerlines.Pasajero (
+  idPasajero INT NOT NULL IDENTITY (1, 1),
+  nombres VARCHAR(45) NOT NULL,
+  apellidos VARCHAR(45) NOT NULL,
   sexo CHAR(1) NOT NULL,
   edad CHAR(2) NOT NULL,
-  telefono VARCHAR(20) NOT NULL,
+  telefono VARCHAR(8) NOT NULL,
   idTipoVisa INT NULL,
-  idPasaporte CHAR(1) NOT NULL,
+  idPasaporte int NOT NULL,
+  idPais INT NOT NULL,
    CONSTRAINT Pk_Pasajero_idPasajero
   PRIMARY KEY  CLUSTERED  (idPasajero)
   )
   go
 
- 
 
 
-	--Tabla Vuelo--
-CREATE TABLE  Aerlines.Vuelo (
-  idVuelo INT NOT NULL,
+ --Tabla de pasaporte--
+ create table Aerlines.Pasaporte(
+ idPasaporte int not null identity (1,1),
+ DescripcionPasaporte varchar(15)
+  CONSTRAINT Pk_Pasaporte_idPasaporte
+  PRIMARY KEY  CLUSTERED  (idPasaporte)
+ )
+ go
+
+ --Tabla de visa--
+ create table Aerlines.TipoVisa(
+ idTipoVisa int not null identity (1,1),
+ Nombre varchar(25),
+   CONSTRAINT Pk_TipoVisa_idTipoVisa
+  PRIMARY KEY  CLUSTERED  ( idTipoVisa)
+ )
+ go
+
+	-- / Tabla Vuelo--
+create TABLE  Aerlines.Vuelo (
+  idVuelo INT NOT NULL IDENTITY (1, 1),
   fechaSalida DATE NOT NULL,
   horaSalida TIME NOT NULL,
   fechaLlegada DATE NOT NULL,
@@ -72,18 +88,19 @@ CREATE TABLE  Aerlines.Vuelo (
 go
 
 
---Tabla Clase--
+-- / Tabla Clase--
 create table Aerlines.clase(
-	idclase int not null,
+	idclase int not null identity (1,1) ,
 	NombreClase varchar (15),
 	constraint Pk_Clase_idclase
   PRIMARY KEY  CLUSTERED  (idclase)
 )
 go
 
---Tabla Facturacion--
-CREATE TABLE Aerlines.DetallePrecio (
-  idPrecio INT NOT NULL,
+
+--/Tabla Facturacion--
+create TABLE Aerlines.DetallePrecio(
+  idPrecio INT identity (1,1),
   idClase INT NOT NULL,
   Precio DECIMAL(8,2) NOT NULL,
   PRIMARY KEY CLUSTERED   (idPrecio),
@@ -94,11 +111,11 @@ CREATE TABLE Aerlines.DetallePrecio (
     ON UPDATE NO ACTION)
 go
 
---Tabla Boleto--
+--/Tabla Boleto--
 create TABLE Aerlines.Boleto (
-  idBoleto INT NOT NULL,
-  idVuelo INT NOT NULL,
+  idBoleto INT NOT NULL identity (1,1),
   fecha DATETIME NOT NULL,
+  idVuelo INT NOT NULL,
   idPasajero INT NOT NULL,
   idDetallePrecio INT NOT NULL,
   idClase INT NOT NULL,
@@ -127,9 +144,10 @@ create TABLE Aerlines.Boleto (
   
 go
 
---Tabla emision de pasaporte--
+
+--/Tabla emision de pasaporte--
 create table aerlines.emisionPasaporte(
-	id int not null,
+	id int not null IDENTITY (2, 1),
 	Nacionalidad varchar (20) not null,
 	Nombres varchar(15) not null,
 	Apellidos varchar(15),
@@ -161,3 +179,24 @@ ALTER TABLE Aerlines.vuelo WITH CHECK
 	ADD CONSTRAINT CHK_Aerlines_Vuelo$VerificarFechaSalida
 	CHECK (fechaSalida > fechaLlegada)
 GO
+
+/*Para eliminar un constrain*/
+/*ALTER TABLE Aerlines.Boleto DROP CONSTRAINT [fk_Boleto_idDetallePrecio]
+ALTER TABLE Aerlines.detalleprecio DROP CONSTRAINT [pk_DetallePrecio_idClase]
+GO*/
+
+
+
+
+
+--insert de boleto--
+
+insert into Aerlines.Boleto values ( '2020-08-01', 1, 1, 1,1)
+
+--Insert Pasajero
+insert into Aerlines.Pasajero values ('Josefina','Hernandez','F','30',99999898,1,1,1)
+
+--insert Detalle Precio
+insert into Aerlines.DetallePrecio values (1,1800)
+
+select * from Aerlines.Boleto

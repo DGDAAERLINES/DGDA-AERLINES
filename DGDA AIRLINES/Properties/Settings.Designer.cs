@@ -25,5 +25,19 @@ namespace DGDA_AIRLINES.Properties
                 return defaultInstance;
             }
         }
+<<<<<<< Updated upstream
+=======
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=localhost\\MSSQLSERVER01;Initial Catalog=DGDAaerlines;Integrated Secur" +
+            "ity=True")]
+        public string DGDA_AIRLINES {
+            get {
+                return ((string)(this["DGDA_AIRLINES"]));
+            }
+        }
+>>>>>>> Stashed changes
     }
 }
