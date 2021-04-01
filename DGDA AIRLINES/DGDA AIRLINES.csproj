@@ -43,6 +43,9 @@
     <Reference Include="MahApps.Metro.IconPacks.Material, Version=4.0.0.0, Culture=neutral, PublicKeyToken=0c0d510f9915137a, processorArchitecture=MSIL">
       <HintPath>..\packages\MahApps.Metro.IconPacks.Material.4.8.0\lib\net47\MahApps.Metro.IconPacks.Material.dll</HintPath>
     </Reference>
+    <Reference Include="MaterialDesign.Icons, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialDesign.Icons.1.1.0\lib\netstandard2.0\MaterialDesign.Icons.dll</HintPath>
+    </Reference>
     <Reference Include="MaterialDesignColors, Version=2.0.0.2422, Culture=neutral, PublicKeyToken=df2a72020bd7962a, processorArchitecture=MSIL">
       <HintPath>..\packages\MaterialDesignColors.2.0.0\lib\net452\MaterialDesignColors.dll</HintPath>
     </Reference>
@@ -88,6 +91,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Reservation.xaml.cs">
+      <DependentUpon>Reservation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reservations.cs" />
     <Compile Include="Start Screen.xaml.cs">
       <DependentUpon>Start Screen.xaml</DependentUpon>
     </Compile>
@@ -104,6 +111,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Reservation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Start Screen.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

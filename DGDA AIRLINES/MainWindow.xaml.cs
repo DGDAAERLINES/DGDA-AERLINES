@@ -26,6 +26,8 @@ namespace DGDA_AIRLINES
         public MainWindow()
         {
             InitializeComponent();
+            
+
         }
 
         private void btnLogin_Click(object sender, RoutedEventArgs e)
@@ -67,5 +69,7 @@ namespace DGDA_AIRLINES
         {
             Close();
         }
+
+       
     }
 }
