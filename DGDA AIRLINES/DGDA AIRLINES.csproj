@@ -91,6 +91,10 @@
     <Compile Include="Start Screen.xaml.cs">
       <DependentUpon>Start Screen.xaml</DependentUpon>
     </Compile>
+    <Compile Include="User.cs" />
+    <Compile Include="Users.xaml.cs">
+      <DependentUpon>Users.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Usuario.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -105,6 +109,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Start Screen.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Users.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
