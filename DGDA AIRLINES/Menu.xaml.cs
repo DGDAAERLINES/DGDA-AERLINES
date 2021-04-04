@@ -1,16 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace DGDA_AIRLINES
 {
@@ -37,7 +26,32 @@ namespace DGDA_AIRLINES
             Close();
         }
 
-       
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                // Mostrar un mensaje de confirmación
+                MessageBoxResult result = MessageBox.Show("You can issue the passport if you have already made your payment at the Bank", "Confirmar", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+
+                if (result == MessageBoxResult.Yes)
+                {
+                    // Mostrar formulario de Emision de pasaporte
+                    // iniciarSesion = new MainWindow();
+                    //iniciarSesion.Show();
+                    Close();
+                }
+                else
+                {
+                    MessageBox.Show("You should first pay");
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("You should first pay");
+                Console.WriteLine(ex.Message);
+            }
+        }
     }
 
     //Creacion de clase 

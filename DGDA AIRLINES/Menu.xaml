@@ -112,18 +112,13 @@
                 <ColumnDefinition Width="26*"/>
                 <ColumnDefinition Width="209*"/>
             </Grid.ColumnDefinitions>
-            <Ellipse Fill="#FFE8E8F9" HorizontalAlignment="Left" Margin="84,212,0,0" Stroke="#FFF4F4F5" Width="92" Grid.ColumnSpan="2" Height="56" VerticalAlignment="Top"/>
-            <Ellipse Fill="#FFE8E8F9" HorizontalAlignment="Left" Margin="84,441,0,0" Stroke="#FFF4F4F5" Width="92" Grid.ColumnSpan="2" Height="49" VerticalAlignment="Top"/>
-            <Ellipse Fill="#FFE8E8F9" HorizontalAlignment="Left" Margin="84,291,0,0" Stroke="#FFF4F4F5" Width="92" Grid.ColumnSpan="2" Height="54" VerticalAlignment="Top"/>
-            <Ellipse Fill="#FFE8E8F9" HorizontalAlignment="Left" Margin="84,368,0,0" Stroke="#FFF4F4F5" Width="92" Grid.ColumnSpan="2" Height="52" VerticalAlignment="Top"/>
-            <Ellipse Fill="#FFE8E8F9" HorizontalAlignment="Left" Margin="84,515,0,0" Stroke="#FFF4F4F5" Width="92" Grid.ColumnSpan="2" Height="51" VerticalAlignment="Top"/>
             <Ellipse Fill="#FFF4F4F5" Margin="0,451,636,0" Stroke="#FFF4F4F5" Cursor="Hand" Grid.Column="1" HorizontalAlignment="Right" Width="108" Height="88" VerticalAlignment="Top"/>
             <Button
     Style="{StaticResource MaterialDesignRaisedLightButton}"
     materialDesign:ButtonAssist.CornerRadius="5"
-    ToolTip="Bank" Margin="0,368,0,0" BorderThickness="0" Height="47" HorizontalAlignment="Left" Width="258" Grid.ColumnSpan="2" VerticalAlignment="Top">
+    ToolTip="Bank" Margin="0,373,0,0" BorderThickness="0" Height="68" HorizontalAlignment="Left" Width="258" Grid.ColumnSpan="2" VerticalAlignment="Top">
                 <Button.Background>
-                    <ImageBrush ImageSource="Bank.jpg" Stretch="Uniform"/>
+                    <ImageBrush ImageSource="Bank.png" Stretch="Uniform"/>
                 </Button.Background>
             </Button>
             <Border CornerRadius="5" BorderBrush="Black" BorderThickness="1" Height="36" Margin="133,80,0,0" VerticalAlignment="Top" Cursor="Hand" ToolTip="Date and Time" HorizontalAlignment="Left" Width="301" Grid.Column="1">
@@ -147,17 +142,17 @@
             <Button
                 Style="{StaticResource MaterialDesignRaisedLightButton}"
                 materialDesign:ButtonAssist.CornerRadius="5"
-                ToolTip="Passport Issue" Margin="0,291,0,0" BorderThickness="0" Height="54" HorizontalAlignment="Left" Width="258" Content="" FontWeight="Bold" BorderBrush="#FF437BA8" Foreground="#FFF8F1F1" FontStyle="Italic" FontSize="18" Grid.ColumnSpan="2" VerticalAlignment="Top">
+                ToolTip="Passport Issue" Margin="0,294,0,0" BorderThickness="0" Height="54" HorizontalAlignment="Left" Width="258" Content="" FontWeight="Bold" BorderBrush="#FF437BA8" Foreground="#FFF8F1F1" FontStyle="Italic" FontSize="18" Grid.ColumnSpan="2" VerticalAlignment="Top" Click="Button_Click_2">
                 <Button.Background>
-                    <ImageBrush ImageSource="pass.png" Stretch="Uniform"/>
+                    <ImageBrush ImageSource="passportc.png" Stretch="Uniform"/>
                 </Button.Background>
             </Button>
             <Button
                 Style="{StaticResource MaterialDesignRaisedLightButton}"
                 materialDesign:ButtonAssist.CornerRadius="5"
-                ToolTip="Flights Offer" Margin="0,441,0,0" BorderThickness="0" Height="49" HorizontalAlignment="Left" Width="258" Content="" FontWeight="Bold" BorderBrush="#FF437BA8" Foreground="#FFF8F1F1" FontStyle="Italic" FontSize="18" VerticalAlignment="Top" Grid.ColumnSpan="2">
+                ToolTip="Flights Offer" Margin="0,452,0,0" BorderThickness="0" Height="49" HorizontalAlignment="Left" Width="258" Content="" FontWeight="Bold" BorderBrush="#FF437BA8" Foreground="#FFF8F1F1" FontStyle="Italic" FontSize="18" VerticalAlignment="Top" Grid.ColumnSpan="2">
                 <Button.Background>
-                    <ImageBrush ImageSource="ofetas.png" Stretch="Uniform"/>
+                    <ImageBrush ImageSource="ofertas.png" Stretch="Uniform"/>
                 </Button.Background>
             </Button>
             <Label Content="Business Class" Margin="282,546,0,47" Cursor="Hand" Foreground="#DDFBEBEB" FontFamily="Cambria" FontWeight="Bold" FontSize="20" FontStyle="Italic" Grid.Column="1" HorizontalAlignment="Left" Width="152"/>
@@ -212,18 +207,19 @@
             </Border>
             <Label Content="Passport From:" Margin="764,464,0,119" FontFamily="Cambria" FontSize="18" FontWeight="Bold" Foreground="#DDFDEDED" Cursor="Hand" Grid.Column="1" HorizontalAlignment="Left" Width="136"/>
             <Label Content="$ 35.00" Margin="764,491,0,102" Cursor="Hand" Foreground="#DDFBEBEB" FontFamily="Cambria" FontWeight="Bold" FontSize="20" FontStyle="Italic" Grid.Column="1" HorizontalAlignment="Left" Width="153"/>
-            <Expander Header="" HorizontalAlignment="Left" Margin="0,520,0,0" Width="258" Cursor="Hand" ToolTip="Maintenance" Grid.ColumnSpan="2" Height="46" VerticalAlignment="Top">
+            <Expander Header="" HorizontalAlignment="Left" Margin="0,517,0,0" Width="258" Cursor="Hand" ToolTip="Maintenance" Grid.ColumnSpan="2" Height="59" VerticalAlignment="Top">
                 <Expander.Background>
-                    <ImageBrush ImageSource="Man.png" Stretch="Uniform"/>
+                    <ImageBrush ImageSource="manten.png" Stretch="Uniform"/>
+             
                 </Expander.Background>
                 <Grid Background="#FFE5E5E5"/>
             </Expander>
             <Button
                 Style="{StaticResource MaterialDesignRaisedLightButton}"
                 materialDesign:ButtonAssist.CornerRadius="5"
-                ToolTip="Sell Ticket" Margin="0,214,0,0" BorderThickness="0" Height="54" HorizontalAlignment="Left" Width="258" Content="" FontWeight="Bold" BorderBrush="#FF437BA8" Foreground="#FFF8F1F1" FontStyle="Italic" FontSize="18" VerticalAlignment="Top" Grid.ColumnSpan="2">
+                ToolTip="Sell Ticket" Margin="10,217,0,0" BorderThickness="0" Height="72" HorizontalAlignment="Left" Width="230" Content="" FontWeight="Bold" BorderBrush="#FF437BA8" Foreground="#FFF8F1F1" FontStyle="Italic" FontSize="18" VerticalAlignment="Top" Grid.ColumnSpan="2">
                 <Button.Background>
-                    <ImageBrush ImageSource="bol.png" Stretch="Uniform"/>
+                    <ImageBrush ImageSource="boletooo.png" Stretch="Uniform"/>
                 </Button.Background>
             </Button>
             <DataGrid Grid.Column="1" HorizontalAlignment="Left" Height="301" Margin="504,80,0,0" VerticalAlignment="Top" Width="486" BorderBrush="#1FF9F0F0" Foreground="{x:Null}">
@@ -234,7 +230,6 @@
                     </LinearGradientBrush>
                 </DataGrid.Background>
             </DataGrid>
-            <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="100"/>
             <Border BorderBrush="White" BorderThickness="1" Grid.Column="1" HorizontalAlignment="Left" Height="167" Margin="163,214,0,0" VerticalAlignment="Top" Width="272">
                 <Border.Background>
                     <ImageBrush ImageSource="Captura.PNG"/>
@@ -243,7 +238,7 @@
         </Grid>
         <Button
         Style="{DynamicResource MaterialDesignToolForegroundButton}"
-        Margin="187,0,0,10"
+        Margin="10,0,0,10"
         Panel.ZIndex="0" Height="44" HorizontalAlignment="Left" Width="51" VerticalAlignment="Bottom" Click="Button_Click_1">
             <materialDesign:PackIcon
           Kind="Backburger" Foreground="#FFFAFAFA" Height="34" Width="42" ToolTip="Close " Cursor="Hand" />
