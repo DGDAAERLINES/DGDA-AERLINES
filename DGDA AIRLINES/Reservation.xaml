@@ -6,23 +6,28 @@
          xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:DGDA_AIRLINES"
         mc:Ignorable="d"
-        Title="Reservation" Height="450" Width="800">
+        Title="Reservation" Height="426" Width="815">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="198*" />
-            <ColumnDefinition Width="199*" />
+            <ColumnDefinition Width="173*" />
+            <ColumnDefinition Width="0*"/>
+            <ColumnDefinition Width="223*" />
             <ColumnDefinition Width="0*"/>
             <ColumnDefinition Width="198*" />
-            <ColumnDefinition Width="197*" />
+            <ColumnDefinition Width="198*" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="100" />
             <RowDefinition Height="50" />
             <RowDefinition Height="50" />
             <RowDefinition Height="50" />
             <RowDefinition Height="50" />
             <RowDefinition Height="50" />
-            <RowDefinition Height="*" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+
+            <RowDefinition Height="Auto" />
+
+            <RowDefinition />
         </Grid.RowDefinitions>
         <Border CornerRadius="10" Grid.RowSpan="7" Cursor="Hand">
             <Border.Background>
@@ -32,7 +37,7 @@
                 </LinearGradientBrush>
             </Border.Background>
         </Border>
-        <Border CornerRadius="10" Grid.RowSpan="7" Grid.ColumnSpan="2" Cursor="Hand">
+        <Border CornerRadius="10" Grid.RowSpan="7" Grid.ColumnSpan="3" Cursor="Hand">
             <Border.Background>
                 <LinearGradientBrush>
                     <GradientStop Color="#f083da" Offset="0.0"/>
@@ -40,15 +45,6 @@
                 </LinearGradientBrush>
             </Border.Background>
         </Border>
-        <Border CornerRadius="10" Grid.RowSpan="7" Grid.ColumnSpan="4" Cursor="Hand">
-            <Border.Background>
-                <LinearGradientBrush>
-                    <GradientStop Color="#f083da" Offset="0.0"/>
-                    <GradientStop Color="#33FFFF" Offset="1"/>
-                </LinearGradientBrush>
-            </Border.Background>
-        </Border>
-
         <Border CornerRadius="10" Grid.RowSpan="7" Grid.ColumnSpan="5" Cursor="Hand">
             <Border.Background>
                 <LinearGradientBrush>
@@ -58,40 +54,75 @@
             </Border.Background>
         </Border>
 
+        <Border CornerRadius="10" Grid.RowSpan="7" Grid.ColumnSpan="6" Cursor="Hand">
+            <Border.Background>
+                <LinearGradientBrush>
+                    <GradientStop Color="#f083da" Offset="0.0"/>
+                    <GradientStop Color="#33FFFF" Offset="1"/>
+                </LinearGradientBrush>
+            </Border.Background>
+        </Border>
+        <Border CornerRadius="10" Grid.RowSpan="8" Grid.ColumnSpan="6" Cursor="Hand">
+            <Border.Background>
+                <LinearGradientBrush>
+                    <GradientStop Color="#f083da" Offset="0.0"/>
+                    <GradientStop Color="#33FFFF" Offset="1"/>
+                </LinearGradientBrush>
+            </Border.Background>
+        </Border>
+        <Border CornerRadius="10" Grid.RowSpan="9" Grid.ColumnSpan="6" Cursor="Hand">
+            <Border.Background>
+                <LinearGradientBrush>
+                    <GradientStop Color="#f083da" Offset="0.0"/>
+                    <GradientStop Color="#33FFFF" Offset="1"/>
+                </LinearGradientBrush>
+            </Border.Background>
+        </Border>
 
 
 
-        <ComboBox  Name="cmbOrigen" Grid.Row="1" Grid.Column="1" FontSize="15" Margin="10" Foreground="Black"  />
-        <ComboBox Name="cmbDestino" Grid.Row="2" Grid.Column="1" FontSize="15" Margin="10,10,5,10" Foreground="Black"  Height="30" />
 
-        <Button Name="btnAccep" Grid.Row="6" Grid.Column="1"  Content="Acept" Foreground="White"
-                Background="Transparent" Height="Auto" Margin="46,18,6,10" FontFamily="helvetica" FontSize="20"/>
+        <ComboBox  Name="cmbOrigen" Grid.Row="0" Grid.Column="2" FontSize="12" Margin="10" Foreground="Black"  Grid.ColumnSpan="3" Height="30"  />
+        <ComboBox Name="cmbDestino" Grid.Row="1" Grid.Column="2" FontSize="12" Margin="10" Foreground="Black"  Height="30" Grid.ColumnSpan="3" />
 
-        <Label Content="HND" Grid.Row="1"  FontSize="20" FontFamily="Helvetica"  Margin="10" Foreground="Black"/>
-        <Label Content="Destination" Grid.Row="2" FontSize="20" FontFamily="Helvetica"  Margin="10" Foreground="Black"/>
-        <Label Content="Depart" Grid.Row="3" FontSize="20" FontFamily="Helvetica"  Margin="10" Foreground="Black"/>
-        <Label Content="Return" Grid.Row="4" FontSize="20" FontFamily="Helvetica"  Margin="10" Foreground="Black" />
-        <ListBox Name="lbPaises" Grid.Row="0" Grid.Column="3" Foreground="White" Grid.ColumnSpan="2" Grid.RowSpan="7" Margin="10" Background="Transparent"  />
+        <Button Name="btnRegresar" Grid.Row="8" Grid.Column="5"  Content="Regresar" Foreground="White"
+                Background="Transparent" Height="Auto" Margin="46,10,13,0" FontFamily="helvetica" FontSize="20"  />
 
-        <DatePicker Name="dtdepart" Grid.Row="3"  Grid.Column="1" FontSize="15" Margin="10,10,5,10" Foreground="Black" Background="Transparent" 
-                     DisplayDateStart="2021-01-01" DisplayDateEnd="2021-12-31" Height="30" >
+
+        <Button Name="btnInsertar" Grid.Row="6" Grid.Column="5"  Content="Insertar" Foreground="White"
+                Background="Transparent" Height="Auto" Margin="46,10,13,8" FontFamily="helvetica" FontSize="20" Click="btninsertar_Click" />
+        <Button Name="btnActualizar" Grid.Row="5" Grid.Column="5"  Content="Actualizar" Foreground="White"
+                Background="Transparent" Height="Auto" Margin="46,10,13,10" FontFamily="helvetica" FontSize="20" Click="btnActualizar_Click" />
+
+        <Label Content="HND" Grid.Row="0"  FontSize="20" FontFamily="Helvetica"  Margin="10,10,1,10" Foreground="Black"/>
+        <Label Content="Destino" Grid.Row="1" FontSize="20" FontFamily="Helvetica"  Margin="10,10,1,10" Foreground="Black"/>
+        <Label Content="Salida" Grid.Row="2" FontSize="20" FontFamily="Helvetica"  Margin="10,10,1,10" Foreground="Black"/>
+        <Label Content="Regreso" Grid.Row="3" FontSize="20" FontFamily="Helvetica"  Margin="10,10,1,10" Foreground="Black" />
+        <CheckBox Content="Clase ejecutiva" Name="chEjecutiva" Grid.Row="1" Grid.Column="5"  FontSize="20" Margin="10" Foreground="Black" />
+        <CheckBox Content="Clase economica" Name="chEconomica" Grid.Row="2" Grid.Column="5" FontSize="20" Margin="10,10,0,10" Foreground="Black"/>
+        <Label Content="Clase" Name="lbclase" Grid.Row="0" Grid.Column="5" FontSize="20" Foreground="Black" FontFamily="Helvetica" Margin="46,10,64,8" RenderTransformOrigin="0.547,0.156" />
+
+
+        <DatePicker  Name="dtSalida" Grid.Row="2"  Grid.Column="2" ToolTip="Selet date" FontSize="15" Margin="10,10,5,10" Foreground="Black" Background="Transparent" 
+                     DisplayDateStart="2021-01-01" DisplayDateEnd="2021-12-31" Height="30"  >
             <DatePicker.BlackoutDates>
                 <CalendarDateRange Start="2021-08-08" End="2021-08-09" />
                 <CalendarDateRange Start="2021-04-01" End="2021-04-03" />
             </DatePicker.BlackoutDates>
 
         </DatePicker>
-        <DatePicker Name="dtReturn" Grid.Row="4" Grid.Column="1" FontSize="15" Margin="10,10,5,10" Foreground="White" Background="Transparent" 
-                     DisplayDateStart="2021-01-01" DisplayDateEnd="2021-12-31" Height="30" >
+        <DatePicker Name="dtRegreso" Grid.Row="3" Grid.Column="2" FontSize="15" Margin="10,10,5,10" Foreground="Black" Background="Transparent" 
+                     DisplayDateStart="2021-01-01" DisplayDateEnd="2021-12-31" Height="30"  >
             <DatePicker.BlackoutDates>
                 <CalendarDateRange Start="2021-12-01" End="2021-12-04" />
                 <CalendarDateRange Start="2021-04-01" End="2021-04-03" />
             </DatePicker.BlackoutDates>
         </DatePicker>
-        <ComboBox Name="cmbopcion" Grid.Column="1" HorizontalAlignment="Left" Margin="46,43,0,30"  FontSize="15"  Foreground="Black" Background="Transparent" Width="126" Height="27" >
-
-        </ComboBox>
-        <materialDesign:PackIcon Kind="aeroplanetakeoff" Width="40" Height="53" Foreground="Black" Margin="158,31,0,0"/>
+        <materialDesign:TimePicker Name="THoraSalida" Grid.Row="2" Grid.Column="4" FontSize="15" Margin="10,10,5,10" Foreground="Black" Background="Transparent"/>
+        <materialDesign:TimePicker Name="THoraLlegada" Grid.Row="3" Grid.Column="4" FontSize="15" Margin="10,10,5,10" Foreground="Black" Background="Transparent"/>
+        <materialDesign:PackIcon Kind="aeroplanetakeoff" Width="40" Height="53" Foreground="Black" Margin="123,0,0,0" Grid.RowSpan="2"/>
+        <materialDesign:PackIcon Kind="aeroplanelanding" Width="40" Height="53" Foreground="Black" Margin="123,5,0,0" Grid.RowSpan="2" Grid.Row="1"/>
+        <DataGrid x:Name="DataG" Grid.Row="4" Grid.ColumnSpan="5" FontSize="20" Foreground="Black" Background="Transparent" Grid.RowSpan="5" Margin="0,10,0,0"/>
 
     </Grid>
 </Window>
