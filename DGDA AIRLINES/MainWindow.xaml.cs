@@ -44,10 +44,10 @@ namespace DGDA_AIRLINES
                     // almacenada en la base de datos
                     if (elUsuario.Password == txtPassword.Password && elUsuario.Estado)
                     {
-                        /* Mostrar el formulario de menú principal
-                        MenuPrincipal menu = new MenuPrincipal(elUsuario.NombreCompleto);
-                        menu.Show();
-                        Close();*/
+                        // Mostrar el formulario de menú principal
+                        Menu MenuPrincipal = new Menu();
+                        MenuPrincipal.Show();
+                        Close();
                     }
                     else if (!elUsuario.Estado)
                         MessageBox.Show("usuario innactivo");

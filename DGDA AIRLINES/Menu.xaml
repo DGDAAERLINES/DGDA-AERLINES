@@ -1,0 +1,252 @@
+﻿<Window x:Class="DGDA_AIRLINES.Menu"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DGDA_AIRLINES" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        Title="Menu" Height="650" Width="1183" WindowStyle="None" WindowStartupLocation="CenterScreen">
+    <Window.DataContext>
+        <local:Mydatetimeclass/>
+    </Window.DataContext>
+    <Grid Background="#FF836AF5">
+        <materialDesign:Card materialDesign:ShadowAssist.ShadowDepth="Depth1"
+  Padding="2"
+  Content="" Margin="287,415,0,0" Cursor="Hand" Height="181" VerticalAlignment="Top" HorizontalAlignment="Left" Width="274" >
+            <materialDesign:Card.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFD69161"/>
+                    <GradientStop Color="#FF505EB9" Offset="1"/>
+                </LinearGradientBrush>
+            </materialDesign:Card.Background>
+        </materialDesign:Card>
+        <materialDesign:ColorZone Mode="PrimaryMid" Padding="16">
+            <materialDesign:ColorZone.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF570A86"/>
+                    <GradientStop Color="#FF567FEE" Offset="1"/>
+                </LinearGradientBrush>
+            </materialDesign:ColorZone.Background>
+            <DockPanel>
+                <StackPanel
+      Orientation="Horizontal"
+      materialDesign:RippleAssist.IsCentered="True">
+                    <ToggleButton
+        Style="{DynamicResource MaterialDesignHamburgerToggleButton}" ToolTip="Pull-down" Cursor="Hand" />
+                    <materialDesign:ColorZone
+        Mode="Standard"
+        Padding="8 4 8 4"
+        CornerRadius="2"
+        Panel.ZIndex="1"
+        Margin="16 0 0 0"
+        materialDesign:ShadowAssist.ShadowDepth="Depth1">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition
+              Width="Auto" />
+                                <ColumnDefinition
+              Width="*" />
+                                <ColumnDefinition
+              Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <Button
+            Style="{DynamicResource MaterialDesignToolButton}">
+                                <materialDesign:PackIcon
+              Kind="Search"
+              Opacity=".56" />
+                            </Button>
+                            <TextBox
+            Grid.Column="1"
+            Margin="8 0 0 0"
+            materialDesign:HintAssist.Hint="Search"
+            materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
+            BorderThickness="0"
+            MinWidth="200"
+            VerticalAlignment="Center" ToolTip="Search" />
+                            <Button
+            Style="{DynamicResource MaterialDesignToolButton}"
+            Grid.Column="2">
+                                <materialDesign:PackIcon
+              Kind="Microphone"
+              Opacity=".56"
+              Margin="8 0 0 0" />
+                            </Button>
+                        </Grid>
+                    </materialDesign:ColorZone>
+                </StackPanel>
+            </DockPanel>
+        </materialDesign:ColorZone>
+        <ComboBox
+  Style="{StaticResource MaterialDesignFloatingHintComboBox}"
+  materialDesign:TextFieldAssist.HasClearButton="True"
+  materialDesign:ColorZoneAssist.Mode="Inverted"
+  materialDesign:HintAssist.Hint="Languaje"
+  materialDesign:HintAssist.HelperText="Select one languaje"
+  MinWidth="50" Margin="572,12,92,0" Height="36" BorderBrush="#FFFAFAFA" Foreground="#FFFDFAFA" VerticalAlignment="Top" FontWeight="Medium" Background="{x:Null}" ToolTip="Languaje" Cursor="Hand">
+            <ComboBoxItem
+    Content="ES" />
+            <ComboBoxItem
+    Content="EN" />
+        </ComboBox>
+        <Button x:Name="btnclose"
+        Style="{DynamicResource MaterialDesignToolForegroundButton}"
+        Margin="0,10,10,0"
+        Panel.ZIndex="0" Height="44" Click="Button_Click" VerticalAlignment="Top" HorizontalAlignment="Right" Width="51">
+            <materialDesign:PackIcon
+          Kind="CloseCircle" Foreground="#FFEDEDF7" Height="34" Width="42" ToolTip="Close " Cursor="Hand" />
+        </Button>
+        <TextBlock Text="{Binding DT, StringFormat=\{0:hh:mm:ss tt\}}" Height="64" Margin="328,121,651,0" TextWrapping="Wrap" VerticalAlignment="Top" Cursor="Hand" FontFamily="Microsoft Himalaya" FontSize="48" FontWeight="Bold" ToolTip="Time" Foreground="#FFF9F5F5"/>
+        <TextBlock Text="{Binding DT, StringFormat=\{0:dddd dd MM yyyy\}}" Height="36" Margin="328,160,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Cursor="Hand" FontFamily="Palatino Linotype" FontWeight="Bold" FontStyle="Italic" FontSize="24" ToolTip="Date" Foreground="#FFF9F5F5" HorizontalAlignment="Left" Width="196"/>
+        <materialDesign:Card
+  Foreground="{DynamicResource PrimaryHueLightForegroundBrush}"
+  Padding="8" Margin="0,72,0,0" HorizontalAlignment="Left" Width="256">
+            <materialDesign:Card.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF5A66DB" Offset="0"/>
+                    <GradientStop Color="#FF570481" Offset="1"/>
+                </LinearGradientBrush>
+            </materialDesign:Card.Background>
+        </materialDesign:Card>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="26*"/>
+                <ColumnDefinition Width="209*"/>
+            </Grid.ColumnDefinitions>
+            <Ellipse Fill="#FFF4F4F5" Margin="0,451,636,0" Stroke="#FFF4F4F5" Cursor="Hand" Grid.Column="1" HorizontalAlignment="Right" Width="108" Height="88" VerticalAlignment="Top"/>
+            <Button
+    Style="{StaticResource MaterialDesignRaisedLightButton}"
+    materialDesign:ButtonAssist.CornerRadius="5"
+    ToolTip="Bank" Margin="0,373,0,0" BorderThickness="0" Height="68" HorizontalAlignment="Left" Width="258" Grid.ColumnSpan="2" VerticalAlignment="Top">
+                <Button.Background>
+                    <ImageBrush ImageSource="Bank.png" Stretch="Uniform"/>
+                </Button.Background>
+            </Button>
+            <Border CornerRadius="5" BorderBrush="Black" BorderThickness="1" Height="36" Margin="133,80,0,0" VerticalAlignment="Top" Cursor="Hand" ToolTip="Date and Time" HorizontalAlignment="Left" Width="301" Grid.Column="1">
+                <Border.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FF5660B5"/>
+                        <GradientStop Color="#FFC58B6C" Offset="1"/>
+                    </LinearGradientBrush>
+                </Border.Background>
+            </Border>
+            <Border BorderBrush="Black" BorderThickness="0" HorizontalAlignment="Left" Height="36" Margin="404,80,0,0" VerticalAlignment="Top" Width="30" Grid.Column="1">
+                <Border.Background>
+                    <ImageBrush ImageSource="calendar.png"/>
+                </Border.Background>
+            </Border>
+            <Border BorderBrush="Black" BorderThickness="0" HorizontalAlignment="Left" Width="258" Margin="0,80,0,0" Cursor="Hand" Height="132" VerticalAlignment="Top" Grid.ColumnSpan="2">
+                <Border.Background>
+                    <ImageBrush ImageSource="Logo F.png"/>
+                </Border.Background>
+            </Border>
+            <Button
+                Style="{StaticResource MaterialDesignRaisedLightButton}"
+                materialDesign:ButtonAssist.CornerRadius="5"
+                ToolTip="Passport Issue" Margin="0,294,0,0" BorderThickness="0" Height="54" HorizontalAlignment="Left" Width="258" Content="" FontWeight="Bold" BorderBrush="#FF437BA8" Foreground="#FFF8F1F1" FontStyle="Italic" FontSize="18" Grid.ColumnSpan="2" VerticalAlignment="Top" Click="Button_Click_2">
+                <Button.Background>
+                    <ImageBrush ImageSource="passportc.png" Stretch="Uniform"/>
+                </Button.Background>
+            </Button>
+            <Button
+                Style="{StaticResource MaterialDesignRaisedLightButton}"
+                materialDesign:ButtonAssist.CornerRadius="5"
+                ToolTip="Flights Offer" Margin="0,452,0,0" BorderThickness="0" Height="49" HorizontalAlignment="Left" Width="258" Content="" FontWeight="Bold" BorderBrush="#FF437BA8" Foreground="#FFF8F1F1" FontStyle="Italic" FontSize="18" VerticalAlignment="Top" Grid.ColumnSpan="2">
+                <Button.Background>
+                    <ImageBrush ImageSource="ofertas.png" Stretch="Uniform"/>
+                </Button.Background>
+            </Button>
+            <Label Content="Business Class" Margin="282,546,0,47" Cursor="Hand" Foreground="#DDFBEBEB" FontFamily="Cambria" FontWeight="Bold" FontSize="20" FontStyle="Italic" Grid.Column="1" HorizontalAlignment="Left" Width="152"/>
+            <Label Content="$1000.00" Margin="195,490,697,103" Cursor="Hand" Foreground="#DDFBEBEB" FontFamily="Cambria" FontWeight="Bold" FontSize="20" FontStyle="Italic" Grid.Column="1"/>
+            <Label Content="Tickets From:" Margin="165,469,0,122" FontFamily="Cambria" FontSize="18" FontWeight="Bold" Foreground="#DDFDEDED" Grid.Column="1" HorizontalAlignment="Left" Width="136"/>
+            <Border BorderBrush="Black" BorderThickness="0" Margin="0,458,646,0" Height="73" VerticalAlignment="Top" Grid.Column="1" HorizontalAlignment="Right" Width="77">
+                <Border.Background>
+                    <ImageBrush ImageSource="ej.png"/>
+                </Border.Background>
+            </Border>
+            <materialDesign:Card materialDesign:ShadowAssist.ShadowDepth="Depth1"
+                Padding="2" Margin="454,413,0,0" Cursor="Hand" Height="181" VerticalAlignment="Top" Grid.Column="1" HorizontalAlignment="Left" Width="274" >
+                <materialDesign:Card.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FFD69161"/>
+                        <GradientStop Color="#FF505EB9" Offset="1"/>
+                    </LinearGradientBrush>
+                </materialDesign:Card.Background>
+                <Label Content="Economic Class" Margin="112,132,6,-4" Cursor="Hand" Foreground="#DDFBEBEB" FontFamily="Cambria" FontWeight="Bold" FontSize="20" FontStyle="Italic"/>
+            </materialDesign:Card>
+            <materialDesign:RatingBar
+                x:Name="ReadOnlyRatingBar_Copy"
+                Value="4"
+                IsReadOnly="True" Margin="480,422,0,178" Foreground="#FFFAFAFA" Grid.Column="1" HorizontalAlignment="Left" Width="144" />
+            <Ellipse Fill="#FFF4F4F5" Height="88" Margin="0,452,337,0" Stroke="#FFF4F4F5" VerticalAlignment="Top" Cursor="Hand" Grid.Column="1" HorizontalAlignment="Right" Width="108"/>
+            <Border BorderBrush="Black" BorderThickness="0" Margin="0,469,357,0" Height="54" VerticalAlignment="Top" Grid.Column="1" HorizontalAlignment="Right" Width="67">
+                <Border.Background>
+                    <ImageBrush ImageSource="ec.png"/>
+                </Border.Background>
+            </Border>
+            <Label Content="Tickets From:" Margin="468,464,0,121" FontFamily="Cambria" FontSize="18" FontWeight="Bold" Foreground="#DDFDEDED" Grid.Column="1" HorizontalAlignment="Left" Width="136"/>
+            <Label Content="$ 500.00" Margin="468,491,0,117" Cursor="Hand" Foreground="#DDFBEBEB" FontFamily="Cambria" FontWeight="Bold" FontSize="20" FontStyle="Italic" Grid.Column="1" HorizontalAlignment="Left" Width="153"/>
+            <materialDesign:Card materialDesign:ShadowAssist.ShadowDepth="Depth1"
+                Padding="2" Margin="750,412,0,0" Cursor="Hand" Height="181" VerticalAlignment="Top" Grid.Column="1" HorizontalAlignment="Left" Width="274" >
+                <materialDesign:Card.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FFD69161"/>
+                        <GradientStop Color="#FF505EB9" Offset="1"/>
+                    </LinearGradientBrush>
+                </materialDesign:Card.Background>
+                <Label Content="Passport Issue" Margin="112,132,6,-4" Cursor="Hand" Foreground="#DDFBEBEB" FontFamily="Cambria" FontWeight="Bold" FontSize="20" FontStyle="Italic"/>
+            </materialDesign:Card>
+            <materialDesign:RatingBar
+                x:Name="ReadOnlyRatingBar_Copy1"
+                Value="4"
+                IsReadOnly="True" Margin="776,422,0,183" Foreground="#FFFAFAFA" Grid.Column="1" HorizontalAlignment="Left" Width="124" />
+            <Ellipse Fill="#FFF4F4F5" Margin="0,441,35,0" Stroke="#FFF4F4F5" Cursor="Hand" Grid.Column="1" HorizontalAlignment="Right" Width="108" Height="88" VerticalAlignment="Top"/>
+            <Border BorderBrush="Black" BorderThickness="0" Margin="0,458,55,0" Height="54" VerticalAlignment="Top" Grid.Column="1" HorizontalAlignment="Right" Width="67">
+                <Border.Background>
+                    <ImageBrush ImageSource="ps.png"/>
+                </Border.Background>
+            </Border>
+            <Label Content="Passport From:" Margin="764,464,0,119" FontFamily="Cambria" FontSize="18" FontWeight="Bold" Foreground="#DDFDEDED" Cursor="Hand" Grid.Column="1" HorizontalAlignment="Left" Width="136"/>
+            <Label Content="$ 35.00" Margin="764,491,0,102" Cursor="Hand" Foreground="#DDFBEBEB" FontFamily="Cambria" FontWeight="Bold" FontSize="20" FontStyle="Italic" Grid.Column="1" HorizontalAlignment="Left" Width="153"/>
+            <Expander Header="" HorizontalAlignment="Left" Margin="0,517,0,0" Width="258" Cursor="Hand" ToolTip="Maintenance" Grid.ColumnSpan="2" Height="59" VerticalAlignment="Top">
+                <Expander.Background>
+                    <ImageBrush ImageSource="manten.png" Stretch="Uniform"/>
+             
+                </Expander.Background>
+                <Grid Background="#FFE5E5E5"/>
+            </Expander>
+            <Button
+                Style="{StaticResource MaterialDesignRaisedLightButton}"
+                materialDesign:ButtonAssist.CornerRadius="5"
+                ToolTip="Sell Ticket" Margin="10,217,0,0" BorderThickness="0" Height="72" HorizontalAlignment="Left" Width="230" Content="" FontWeight="Bold" BorderBrush="#FF437BA8" Foreground="#FFF8F1F1" FontStyle="Italic" FontSize="18" VerticalAlignment="Top" Grid.ColumnSpan="2">
+                <Button.Background>
+                    <ImageBrush ImageSource="boletooo.png" Stretch="Uniform"/>
+                </Button.Background>
+            </Button>
+            <DataGrid Grid.Column="1" HorizontalAlignment="Left" Height="301" Margin="504,80,0,0" VerticalAlignment="Top" Width="486" BorderBrush="#1FF9F0F0" Foreground="{x:Null}">
+                <DataGrid.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FF836AF5" Offset="0"/>
+                        <GradientStop Color="#FF6365AC" Offset="1"/>
+                    </LinearGradientBrush>
+                </DataGrid.Background>
+            </DataGrid>
+            <Border BorderBrush="White" BorderThickness="1" Grid.Column="1" HorizontalAlignment="Left" Height="167" Margin="163,214,0,0" VerticalAlignment="Top" Width="272">
+                <Border.Background>
+                    <ImageBrush ImageSource="Captura.PNG"/>
+                </Border.Background>
+            </Border>
+        </Grid>
+        <Button
+        Style="{DynamicResource MaterialDesignToolForegroundButton}"
+        Margin="10,0,0,10"
+        Panel.ZIndex="0" Height="44" HorizontalAlignment="Left" Width="51" VerticalAlignment="Bottom" Click="Button_Click_1">
+            <materialDesign:PackIcon
+          Kind="Backburger" Foreground="#FFFAFAFA" Height="34" Width="42" ToolTip="Close " Cursor="Hand" />
+        </Button>
+        <materialDesign:RatingBar
+  x:Name="ReadOnlyRatingBar"
+  Value="4"
+  IsReadOnly="True" Margin="295,420,754,180" Foreground="#FFFAFAFA" />
+
+    </Grid>
+</Window>
