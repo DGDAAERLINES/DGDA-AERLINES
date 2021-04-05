@@ -37,6 +37,7 @@ namespace DGDA_AIRLINES
         // Muestra los caracteres de la contraseña si se marca el checkbox de mostrar
         private void MostrarContraseña()
         {
+            // 
             if (chkShow.IsChecked == true)
             {
                 txtPasswordVisible.Visibility = Visibility.Visible;
