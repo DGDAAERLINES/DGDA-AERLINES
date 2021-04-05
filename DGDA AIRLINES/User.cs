@@ -186,7 +186,7 @@ namespace DGDA_AIRLINES
                             Username = rdr["username"].ToString(),
                             Password = rdr["password"].ToString(),
                             Status = (EstadosUsuario)Convert.ToChar(rdr["estado"].ToString().Substring(0, 1))
-                });
+                        });
                 }
 
                 return usuarios;
@@ -200,7 +200,7 @@ namespace DGDA_AIRLINES
                 // Cerrar la conexión
                 sqlConnection.Close();
             }
-        }     
+        }
 
         /// <summary>
         /// Modifica los datos de un usuario

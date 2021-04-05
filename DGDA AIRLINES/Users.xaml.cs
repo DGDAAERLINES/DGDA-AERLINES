@@ -91,7 +91,7 @@ namespace DGDA_AIRLINES
         // Valida que se ingresen datos en todas las cajas de texto
         private bool ValidarCampos()
         {
-            if (txtName.Text == string.Empty || txtUser.Text == string.Empty || 
+            if (txtName.Text == string.Empty || txtUser.Text == string.Empty ||
                 txtPassword.Password.ToString() == string.Empty)
             {
                 MessageBox.Show("Please fill all the textboxes!");
