@@ -1,0 +1,25 @@
+﻿<Window x:Class="DGDA_AIRLINES.Prices"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DGDA_AIRLINES"
+        mc:Ignorable="d"
+        Title="Prices" Height="650" Width="1183">
+    <Grid>
+        <TextBox x:Name="txtDestino" HorizontalAlignment="Left" Height="40" Margin="724,58,0,0" TextWrapping="Wrap" Text="Destino/Destiny" VerticalAlignment="Top" Width="359" IsReadOnly="True" FontSize="20"/>
+        <TextBox x:Name="txtOrigen" HorizontalAlignment="Left" Height="40" Margin="108,58,0,0" TextWrapping="Wrap" Text="Origen/Origin" VerticalAlignment="Top" Width="359" IsReadOnly="True" FontSize="20"/>
+        <GroupBox x:Name="groupBox" Header="Economy Class" HorizontalAlignment="Left" Height="384" Margin="50,150,0,0" VerticalAlignment="Top" Width="506" FontSize="16">
+            <Button x:Name="btnPurchase" Content="Purchase" HorizontalAlignment="Center" Margin="0,277,0,0" VerticalAlignment="Top" Width="100" Height="40" FontSize="16" Click="btnPurchase_Click"/>
+        </GroupBox>
+        <GroupBox x:Name="groupBox_Copy" Header="First Class" HorizontalAlignment="Left" Height="384" Margin="600,150,0,0" VerticalAlignment="Top" Width="506" FontSize="16">
+            <Button x:Name="btnPurchaseF" Content="Purchase" HorizontalAlignment="Center" Margin="0,280,0,0" VerticalAlignment="Top" Width="112" FontSize="16" Height="36" Click="btnPurchaseF_Click"/>
+        </GroupBox>
+        <TextBox x:Name="txtPrice" HorizontalAlignment="Left" Height="108" Margin="168,201,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="338" FontSize="50" IsReadOnly="True" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+
+        <TextBox x:Name="txtPriceDollars" HorizontalAlignment="Left" Height="108" Margin="168,338,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="338" FontSize="50" IsReadOnly="True" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <TextBox x:Name="txtPriceF" HorizontalAlignment="Left" Height="108" Margin="724,201,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="338" FontSize="50" IsReadOnly="True" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <TextBox x:Name="txtPriceDollarsF" HorizontalAlignment="Left" Height="108" Margin="724,338,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="338" FontSize="50" IsReadOnly="True" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+
+    </Grid>
+</Window>
