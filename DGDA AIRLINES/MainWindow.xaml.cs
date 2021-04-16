@@ -19,10 +19,57 @@ namespace DGDA_AIRLINES
     /// Lógica de interacción para MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
+
     {
+        // Objeto de tipo usuario para implementar su funcionalidad
+        private Usuario usuario = new Usuario();
         public MainWindow()
         {
             InitializeComponent();
+            
+
         }
+
+        private void btnLogin_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                // Implementar la búsqueda del usuario desde la clase Usuario
+                Usuario elUsuario = usuario.BuscarUsuario(txtUsername.Text);
+
+                // Verificar si el usuario existe
+                if (elUsuario.Username == null)
+                    MessageBox.Show("El usuario/contraseña incorrectos");
+                else
+                {
+                    // Verificar que la contraseña ingresada es igual a la contraseña
+                    // almacenada en la base de datos
+                    if (elUsuario.Password == txtPassword.Password && elUsuario.Estado)
+                    {
+                        /* Mostrar el formulario de menú principal
+                        MenuPrincipal menu = new MenuPrincipal(elUsuario.NombreCompleto);
+                        menu.Show();
+                        Close();*/
+                    }
+                    else if (!elUsuario.Estado)
+                        MessageBox.Show("usuario innactivo");
+                    else
+                        MessageBox.Show("El usuario/contraseña incorrecta. Favor verificar.");
+                }
+            }
+            catch (Exception ex)
+            {
+                //MessageBox.Show("Ha ocurrido un error al momento de realizar la consulta...");
+                MessageBox.Show(ex.Message);
+                Console.WriteLine(ex.Message);
+            }
+        }
+
+        private void btnExit_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
+
+       
     }
 }
