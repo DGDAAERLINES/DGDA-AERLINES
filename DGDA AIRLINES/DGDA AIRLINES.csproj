@@ -91,10 +91,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Reservaciones.cs" />
     <Compile Include="Reservation.xaml.cs">
       <DependentUpon>Reservation.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Reservations.cs" />
     <Compile Include="Start Screen.xaml.cs">
       <DependentUpon>Start Screen.xaml</DependentUpon>
     </Compile>

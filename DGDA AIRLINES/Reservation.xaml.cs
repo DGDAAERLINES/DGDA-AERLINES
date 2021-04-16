@@ -28,8 +28,8 @@ namespace DGDA_AIRLINES
     {
 
         // Variables miembro
-        private Reservations Vuelo = new Reservations();
-        private List<Reservations> Vuelos;
+        private Reservaciones Vuelo = new Reservaciones();
+        private List<Reservaciones> Vuelos;
         private SqlConnection sqlConnection;
 
 
@@ -120,8 +120,8 @@ namespace DGDA_AIRLINES
         private void ValoresFormularioDesdeObjeto()
         {
             // Crea un objeto de tipo vuelo que captura los valores del DataGrid
-            Reservations objvuelo = new Reservations();
-            objvuelo = (Reservations)DataG.SelectedItem;
+            Reservaciones objvuelo = new Reservaciones();
+            objvuelo = (Reservaciones)DataG.SelectedItem;
             txtID.Text = objvuelo.ID.ToString();
             cmbDestino.SelectedItem = objvuelo.Destino.ToString();
             cmbOrigen.SelectedItem = objvuelo.Origen.ToString();
@@ -246,8 +246,8 @@ namespace DGDA_AIRLINES
                 MessageBox.Show("Please select a flight from the list");
             else
             {
-                Reservations objvuelo = new Reservations();
-                objvuelo = (Reservations)DataG.SelectedItem;
+                Reservaciones objvuelo = new Reservaciones();
+                objvuelo = (Reservaciones)DataG.SelectedItem;
                 int idvuelo = objvuelo.ID;
 
                 try
