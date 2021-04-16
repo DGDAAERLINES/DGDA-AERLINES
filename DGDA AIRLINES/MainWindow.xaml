@@ -3,12 +3,70 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:DGDA_AIRLINES"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Login" Height="450" Width="455" VerticalAlignment="Center" HorizontalAlignment="Center" WindowStyle="None" AllowsTransparency="True" WindowState="Maximized" Cursor="Hand">
     <Grid>
-        <Button x:Name="btnlogin" Content="login" HorizontalAlignment="Left" Height="81" Margin="530,306,0,0" VerticalAlignment="Top" Width="184"/>
-        <Label Content="Bienvenidos" HorizontalAlignment="Left" Margin="300,45,0,0" VerticalAlignment="Top" Width="390" Height="48"/>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
 
+
+            <Border CornerRadius="10" Grid.RowSpan="2" Cursor="Hand">
+                <Border.Background>
+                    <LinearGradientBrush>
+                        <GradientStop Color="#FF204CC1"/>
+                        <GradientStop Color="#FFA13BC7" Offset="1"/>
+                    </LinearGradientBrush>
+                </Border.Background>
+            </Border>
+
+
+            <StackPanel VerticalAlignment="Center">
+                <TextBlock Text=" "
+                           FontWeight="Light"
+                           FontFamily="helvetica"
+                           FontSize="20"
+                           Foreground="White"
+                           HorizontalAlignment="Center" Height="146" Margin="50,0,53,0" Width="352" Cursor="Hand">
+                    <TextBlock.Background>
+                        <ImageBrush ImageSource="Logo F.png"/>
+                    </TextBlock.Background>
+                </TextBlock>
+            </StackPanel>
+
+
+
+            <StackPanel Grid.Row="1"
+                Width="350">
+                <StackPanel Margin="10 2">
+
+                    <StackPanel Orientation="Horizontal" Margin=" 5">
+                        <materialDesign:PackIcon Kind="User" Width="30" Height="30" Foreground="White"/>
+                        <TextBox x:Name="txtUsername" Margin="10 0" FontSize="18" materialDesign:HintAssist.Hint="Enter Username " Foreground="White" Width="250" BorderBrush="White" CaretBrush="#FFD94448" SelectionBrush="#FFD94448" />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="10">
+                        <materialDesign:PackIcon Kind="Lock" Width="30" Height="30" Foreground="White"/>
+                        <PasswordBox x:Name="txtPassword" Margin="10 0" FontSize="18" materialDesign:HintAssist.Hint="Enter Password" Foreground="White" Width="250" BorderBrush="White" CaretBrush="#FFD94448" SelectionBrush="#FFD94448" />
+                    </StackPanel>
+                    <StackPanel Margin="5" HorizontalAlignment="Center">
+                        <Button Width="100" Height="40" Style="{StaticResource MaterialDesignRaisedButton}" 
+                         materialDesign:ButtonAssist.CornerRadius="10" BorderThickness="2" BorderBrush="	#FFE4E1"
+                         Background="Transparent" Foreground="White" ToolTip="Login" FontSize="18" x:Name="btnLogin" Click="btnLogin_Click" Content="Login">
+                        </Button>
+                    </StackPanel>
+                    <StackPanel Orientation="Vertical" Margin="115,0" Height="42">
+                        <Button Style="{StaticResource MaterialDesignRaisedButton}" Background="{x:Null}"
+                 ToolTip="Close" x:Name="btnExit" Click="btnExit_Click" materialDesign:ButtonAssist.CornerRadius="10" BorderThickness="2" BorderBrush="	#FFE4E1" >
+                            <materialDesign:PackIcon Kind="Close" Foreground="White" Width="30" Height="30" />
+                        </Button>
+                    </StackPanel>
+                </StackPanel>
+            </StackPanel>
+
+        </Grid>
     </Grid>
 </Window>
