@@ -28,10 +28,11 @@ namespace DGDA_AIRLINES
     {
 
         // Variables miembro
-        private SqlConnection sqlConnection;
-        // Variables miembro
         private Reservations Vuelo = new Reservations();
         private List<Reservations> Vuelos;
+        private SqlConnection sqlConnection;
+
+
 
         // Constructores
         public Reservation()
@@ -41,67 +42,107 @@ namespace DGDA_AIRLINES
             // Realizar la conexión con el servidor de base de datos (SQL Server Express)
             string connectionString = ConfigurationManager.ConnectionStrings["DGDA_AIRLINES.Properties.Settings.DGDA_AIRLINES"].ConnectionString;
             sqlConnection = new SqlConnection(connectionString);
-
             // Metodo de mostrar paises
-            MostrarPais();
+            MostrarAeropuerto();
             MostrarPaisMundo();
-            llenarDataG();
+            Obtenervuelos();
+     
 
 
-           // cmbopcion.Items.Add("solo ida");
-            //cmbopcion.Items.Add("ida y regreso");
+
+
+        }
+        // Obtiene de la base de datos una lista de los vuelos registrados
+        private void Obtenervuelos()
+        {
+
+            Vuelos = Vuelo.Mostrarvuelos();
+            DataG.ItemsSource = Vuelos;
+        }
+
+        private void LimpiarFormulario()
+        {
+            txtID.Text = string.Empty;
+            cmbOrigen.SelectedValue = null;
+            cmbDestino.SelectedValue = null;
+            dtSalida.SelectedDate = null;
+            dtRegreso.SelectedDate = null;
+            HSalida.SelectedTime = null;
+            HRegreso.SelectedTime = null;
+
+        }
+
+        private bool VerificarValores()
+        {
+            if (cmbOrigen.SelectedItem == null || (cmbDestino.SelectedItem == null))
+
+            {
+                MessageBox.Show("Please fill all fields");
+                return false;
+            }
+
+
+            return true;
+        }
+        private bool VerificarValoresCalendar()
+        {
+
+            if (dtRegreso.SelectedDate < dtSalida.SelectedDate)
+            {
+                MessageBox.Show("The return date cannot be less than the departure date.");
+                return false;
+            }
+            else if (dtSalida.SelectedDate == null && (dtRegreso.SelectedDate == null))
+            {
+                MessageBox.Show("Please fill all fields");
+                return false;
+            }
+
+
+            return true;
+        }
+
+        private void ObtenerValoresFormulario()
+
+        {
+            
+            Vuelo.Origen = cmbOrigen.Text;
+            Vuelo.Destino = cmbDestino.Text;
+            Vuelo.FechaRegreso = Convert.ToDateTime(dtRegreso.DisplayDate);
+            Vuelo.FechaSalida = Convert.ToDateTime(dtSalida.DisplayDate);
+             Vuelo.HoraSalida = HSalida.Text;
+            Vuelo.HoraRegreso = HRegreso.Text;
 
 
         }
 
-        
-        private void MostrarPais()
+
+        private void ValoresFormularioDesdeObjeto()
         {
+            // Crea un objeto de tipo vuelo que captura los valores del DataGrid
+            Reservations objvuelo = new Reservations();
+            objvuelo = (Reservations)DataG.SelectedItem;
+            txtID.Text = objvuelo.ID.ToString();
+            cmbDestino.SelectedItem = objvuelo.Destino.ToString();
+            cmbOrigen.SelectedItem = objvuelo.Origen.ToString();
+            dtRegreso.SelectedDate = objvuelo.FechaRegreso;
+            dtSalida.SelectedDate = objvuelo.FechaSalida;
+            HSalida.Text = objvuelo.HoraSalida;
+           HRegreso.Text= objvuelo.HoraRegreso;
+
+
+
+        }
+  
+
+
+        private void MostrarAeropuerto()
+        {
+
             try
             {
                 // El query de consulta a la tabla de la base de datos
                 string query = "SELECT * FROM Aerlines.AeropuertoHN";
-
-                // SqlDataAdapter es una interfaz entre las tablas de la base de datos
-                // y los objetos utilizables en C#
-                SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(query, sqlConnection);
-
-                // Utilizar el SqlDataAdapter
-                using (sqlDataAdapter)
-                {
-                    // Objeto de C# que refleje la estructura de una tabla
-                    DataTable tablaPais = new DataTable();
-
-                    // LLenar el objeto de tipo DataTable con los valores proveniente del SqlDataAdapter
-                    sqlDataAdapter.Fill(tablaPais);
-
-
-                    cmbOrigen.DisplayMemberPath = "Nombre";
-                    //cmbDestino.DisplayMemberPath = "nombre";
-
-
-                    // cmbOrigen.SelectedValuePath = "idPais";
-                    /// cmbDestino.SelectedValuePath = "idPais";
-
-                    cmbOrigen.SelectedValuePath = "idAeropuertoHN";
-                    // cmbDestino.DisplayMemberPath = "nombre";
-
-                    // ¿Quién es la referencia para los datos del ListBox? (populate)
-                    cmbOrigen.ItemsSource = tablaPais.DefaultView;
-                    // cmbDestino.ItemsSource = tablaPais.DefaultView;
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString());
-            }
-        }
-        private void MostrarPaisMundo()
-        {
-            try
-            {
-                // El query de consulta a la tabla de la base de datos
-                string query = @"select *  from Aerlines.Pais";
 
                 // SqlDataAdapter es una interfaz entre las tablas de la base de datos
                 // y los objetos utilizables en C#
@@ -116,20 +157,42 @@ namespace DGDA_AIRLINES
                     // LLenar el objeto de tipo DataTable con los valores proveniente del SqlDataAdapter
                     sqlDataAdapter.Fill(tablaAeropuerto);
 
+                    cmbOrigen.DisplayMemberPath = "Nombre";
+                    cmbOrigen.SelectedValuePath = "idAeropuertoHN"; ;
+
+                    cmbOrigen.ItemsSource = tablaAeropuerto.DefaultView;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
+
+        private void MostrarPaisMundo()
+        {
+            try
+            {
+                // El query de consulta a la tabla de la base de datos
+                string query = "select *  from Aerlines.Pais";
+
+                // SqlDataAdapter es una interfaz entre las tablas de la base de datos
+                // y los objetos utilizables en C#
+                SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(query, sqlConnection);
+
+                // Utilizar el SqlDataAdapter
+                using (sqlDataAdapter)
+                {
+                    // Objeto de C# que refleje la estructura de una tabla
+                    DataTable tablaPaises = new DataTable();
+
+                    // LLenar el objeto de tipo DataTable con los valores proveniente del SqlDataAdapter
+                    sqlDataAdapter.Fill(tablaPaises);
+
 
                     cmbDestino.DisplayMemberPath = "nombre";
-                    //cmbDestino.DisplayMemberPath = "nombre";
-
-
-                    // cmbOrigen.SelectedValuePath = "idPais";
-                    /// cmbDestino.SelectedValuePath = "idPais";
-
-                    cmbDestino.SelectedValuePath = "id";
-                    // cmbDestino.DisplayMemberPath = "nombre";
-
-                    // ¿Quién es la referencia para los datos del ListBox? (populate)
-                    // cmbOrigen.ItemsSource = tablaAeropuerto.DefaultView;
-                    cmbDestino.ItemsSource = tablaAeropuerto.DefaultView;
+                    cmbDestino.SelectedValuePath = "id"; ;
+                    cmbDestino.ItemsSource = tablaPaises.DefaultView;
                 }
             }
             catch (Exception ex)
@@ -137,172 +200,122 @@ namespace DGDA_AIRLINES
                 MessageBox.Show(ex.Message.ToString());
             }
         }
-        private void ObtenerValoresFormulario()
+
+        private void btnInsertar_Click(object sender, RoutedEventArgs e)
         {
 
-            Vuelo.Id = cmbDestino.SelectedIndex;
-            Vuelo.IdAeropuertoHN = cmbOrigen.SelectedIndex;
-            Vuelo.FechaLLegada = dtRegreso.DisplayDate;
-            Vuelo.FechaSalida = dtSalida.DisplayDate;
-            
-            Vuelo.IdVuelo = Convert.ToInt32(DataG.SelectedValue);
-        }
-        private bool VerificarValores()
-        {
-            if (cmbOrigen.SelectedItem == null || (cmbDestino.SelectedItem == null))
-
-            {
-                MessageBox.Show("Debe de llenar todos los campos");
-                return false;
-            }
-
-
-            return true;
-        }
-        private bool VerificarValoresCalendar()
-        {
-
-            if (dtRegreso.SelectedDate < dtSalida.SelectedDate)
-            {
-                MessageBox.Show("La fecha de regreso no puede ser menor que la fecha de salida.");
-                return false;
-            }
-            else if (dtSalida.SelectedDate == null && (dtRegreso.SelectedDate == null))
-            {
-                MessageBox.Show("Por favor llene todos los campos");
-                return false;
-            }
-
-            else if (chEconomica.IsChecked == null || chEjecutiva.IsChecked == null)
-            {
-                MessageBox.Show("por favor elija una clase ");
-                return false;
-            }
-            
-
-            return true;
-        }
-
-
-
-
-        
-
-        private void LimpiarFormulario()
-        {
-           
-            cmbOrigen.SelectedValue = null;
-            cmbDestino.SelectedValue = null;
-            dtSalida.SelectedDate = null;
-            dtRegreso.SelectedDate = null;
-        }
-
-        private void chEjecutiva_Checked(object sender, RoutedEventArgs e)
-        {
-            if (chEjecutiva.IsChecked == true)
-            {
-                chEconomica.IsChecked = false;
-            }
-            else
-            {
-                chEconomica.IsChecked = true;
-            }
-        }
-
-        private void chEconomica_Checked(object sender, RoutedEventArgs e)
-        {
-            if (chEconomica.IsChecked == true)
-            {
-                chEjecutiva.IsChecked = false;
-            }
-            else
-            {
-                chEjecutiva.IsChecked = true;
-            }
-        }
-        
-
-        private void llenarDataG()
-
-        {
-            
-            SqlCommand sqlCommand = new SqlCommand("MostrarVuelos", sqlConnection);
-            sqlCommand.CommandType = CommandType.StoredProcedure;
-            DataTable dt = new DataTable();
-            sqlConnection.Open();
-            SqlDataReader sdr = sqlCommand.ExecuteReader();
-            dt.Load(sdr);
-            sqlConnection.Close();
-            DataG.ItemsSource = dt.DefaultView;
-
-
-        }
-
-        private void btninsertar_Click(object sender, RoutedEventArgs e)
-        {
             // Verificar que se ingresaron los valores requeridos
             if (VerificarValores() && VerificarValoresCalendar())
             {
+
                 try
                 {
-
-
-                    // Obtener los valores para la habitación
+                    //Metodo que manda a llamar el dataGrid
                     ObtenerValoresFormulario();
-
-                  
                     Vuelo.Crearvuelo(Vuelo);
-                    llenarDataG();
-                   
+                    MessageBox.Show("Flight inserted correctly!");
+
+              
 
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Ha ocurrido un error al momento de insertar el vuelo...");
+                    MessageBox.Show("Data Insert Error!");
                     Console.WriteLine(ex.Message);
                 }
                 finally
                 {
-                    LimpiarFormulario();
 
+                    LimpiarFormulario();
+                    Obtenervuelos();
                 }
+
             }
         }
 
-        private void ValoresFormularioDesdeObjeto()
+        private void OcultarBotones(Visibility ocultar)
         {
-            cmbDestino.SelectedValue = Vuelo.IdAeropuertoHN;
-            cmbOrigen.SelectedValue = Vuelo.Id;
-            dtRegreso.DisplayDate = Vuelo.FechaLLegada;
-            dtSalida.DisplayDate = Vuelo.FechaSalida;
-
-            
+            btnInsertar.Visibility = ocultar;
+            btnActualizar.Visibility = ocultar;
+            btnRegresar.Visibility = ocultar;
         }
+
         private void btnActualizar_Click(object sender, RoutedEventArgs e)
         {
-            
-
             if (DataG.SelectedValue == null)
-                MessageBox.Show("Por favor selecciona ");
+                MessageBox.Show("Please select a flight from the list");
             else
             {
+                Reservations objvuelo = new Reservations();
+                objvuelo = (Reservations)DataG.SelectedItem;
+                int idvuelo = objvuelo.ID;
+
                 try
                 {
-                    // Obtener la información  del vuelo
-                    Vuelo = Vuelo.BuscarVuelo(Convert.ToInt32(DataG.SelectedValue));
+                    // Obtener la información del vuelo
+                    Vuelo = Vuelo.BuscarVuelo(idvuelo);
 
                     // Llenar los valores del formulario
                     ValoresFormularioDesdeObjeto();
+                    OcultarBotones(Visibility.Hidden);
 
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Ha ocurrido un error al momento de modificar el vuelo...");
+                    MessageBox.Show("An error occurred while modifying the flight...");
                     MessageBox.Show(ex.Message);
+                }
+                finally
+                {
+                    Obtenervuelos();
                 }
             }
         }
 
+        private void btncancelar_Click(object sender, RoutedEventArgs e)
+        {
+            OcultarBotones(Visibility.Visible);
+            LimpiarFormulario();
+        }
 
+        private void btnAceptar_Click(object sender, RoutedEventArgs e)
+        {
+
+            try
+            {
+                // Obtener los valores para la habitación desde el formulario
+                ObtenerValoresFormulario();
+
+                // Actualizar los valores en la base de datos
+                Vuelo.Modificarvuelo(Vuelo, Convert.ToInt32(txtID.Text));
+
+                // Mensaje de actualización realizada
+                MessageBox.Show("Sucessfully Fligth update");
+
+                OcultarBotones(Visibility.Visible);
+
+                LimpiarFormulario();
+                ;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error when updating the flight...");
+                Console.WriteLine(ex.Message);
+            }
+            finally
+            {
+
+                // Actualizar el datagrid de vuelos
+                Obtenervuelos();
+            }
+
+        }
+
+     
+
+        private void btnLogin_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
     }
 }
