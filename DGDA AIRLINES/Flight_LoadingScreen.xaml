@@ -1,0 +1,20 @@
+﻿<Window x:Class="DGDA_AIRLINES.Flight_LoadingScreen"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:gif="http://wpfanimatedgif.codeplex.com"
+        xmlns:local="clr-namespace:DGDA_AIRLINES"
+        mc:Ignorable="d"
+        WindowStyle="None" 
+        WindowStartupLocation="CenterScreen"
+        Height="200" Width="600">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="259*"/>
+            <ColumnDefinition Width="334*"/>
+        </Grid.ColumnDefinitions>
+        <ProgressBar Name="progressBar1" Minimum="0" Maximum="100" HorizontalAlignment="Left" Height="26" Margin="152,119,0,0" VerticalAlignment="Top" Width="286" Grid.ColumnSpan="2"/>
+        <Image gif:ImageBehavior.AnimatedSource="Imagenes/tumblr_olbh0td5At1w0ugt7o1_500.gif" Margin="160,10,160,85" Grid.ColumnSpan="2" Source="Imagenes/tumblr_olbh0td5At1w0ugt7o1_500.gif" />
+    </Grid>
+</Window>
