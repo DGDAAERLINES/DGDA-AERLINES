@@ -281,5 +281,24 @@ namespace DGDA_AIRLINES
                 Console.WriteLine(ex.Message);
             }
         }
+
+        private void btnSiguiente_Click(object sender, RoutedEventArgs e)
+        {
+            CRUD_Pasajeros Cpasajeros = new CRUD_Pasajeros();
+            Cpasajeros.Show();
+            Close();
+        }
+
+        private void btnRegresar_Click(object sender, RoutedEventArgs e)
+        {
+            Reservation reservaciones = new Reservation();
+            reservaciones.Show();
+            Close();
+        }
+
+        private void btnexit_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
     }
 }
