@@ -97,8 +97,8 @@ namespace CRUD_Pasajeros
         {
             try
             {
-                string query = @"insert into Aerlines.Pasajero(idPasajero, nombre, apellido, idPais, sexo, edad, telefono)
-	                           values(@id, @nombre, @apellido, @idPais, @sexo, @edad, @telefono)";
+                string query = @"insert into Aerlines.Pasajero(nombre, apellido, id, sexo, edad, telefono)
+	                           values(@nombre, @apellido, @idPais, @sexo, @edad, @telefono)";
 
                 // Establecer la conexión
                 sqlConnection.Open();
@@ -107,7 +107,6 @@ namespace CRUD_Pasajeros
                 SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
 
                 // Establecer los valores de los parámetros
-                sqlCommand.Parameters.AddWithValue("@id", conexion.IdPasajero);
                 sqlCommand.Parameters.AddWithValue("@nombre", conexion.Nombre);
                 sqlCommand.Parameters.AddWithValue("@apellido", conexion.Apellido);
                 sqlCommand.Parameters.AddWithValue("@idPais", conexion.IdPais);
@@ -128,6 +127,7 @@ namespace CRUD_Pasajeros
                 sqlConnection.Close();
             }
         }
+
 
         public void ModificarPasajero(Conexion conexion)
         {

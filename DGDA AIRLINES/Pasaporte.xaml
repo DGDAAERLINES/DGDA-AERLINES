@@ -11,22 +11,13 @@
             <RowDefinition Height="161*"/>
             <RowDefinition Height="160*"/>
         </Grid.RowDefinitions>
-        <ComboBox x:Name="cmbtype" HorizontalAlignment="Left" Height="25" Margin="474,89,0,0" VerticalAlignment="Top" Width="194" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="Black" Foreground="Black" BorderBrush="#FFF1E4E4"/>
+        <ComboBox x:Name="cmbtype" HorizontalAlignment="Left" Height="25" Margin="474,89,0,0" VerticalAlignment="Top" Width="194" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="White" Foreground="#FF080808" BorderBrush="#FFF1E4E4"/>
         <TextBox x:Name="txtpaisemisor" HorizontalAlignment="Left" Height="25" Margin="767,89,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="168" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="{x:Null}" Foreground="#FFFDF5F5"/>
         <TextBox x:Name="txtpassportno" HorizontalAlignment="Left" Height="25" Margin="1002,89,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="166" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="{x:Null}" Foreground="#FFFDF5F5"/>
         <TextBox x:Name="txtsurname" HorizontalAlignment="Left" Height="21" Margin="462,162,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="218" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="{x:Null}" Foreground="#FFFDF5F5"/>
         <TextBox x:Name="txtnationality" HorizontalAlignment="Left" Height="21" Margin="761,161,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="218" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="{x:Null}" Foreground="#FFFDF5F5"/>
         <TextBox x:Name="txtname" HorizontalAlignment="Left" Height="24" Margin="462,209,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="218" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="{x:Null}" Foreground="#FFFDF5F5"/>
-        <DatePicker x:Name="txtbirth" FontSize="15" Margin="462,249,495,43" Foreground="Black" Background="Transparent" 
-                     DisplayDateStart="2021-01-01" DisplayDateEnd="2021-12-31" Height="30"  >
-            <DatePicker.BlackoutDates>
-                <CalendarDateRange Start="2021-12-01" End="2021-12-04" />
-                <CalendarDateRange Start="2021-04-01" End="2021-04-03" />
-            </DatePicker.BlackoutDates>
-        </DatePicker>
         <TextBox x:Name="txtplace" HorizontalAlignment="Left" Height="24" Margin="761,300,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="218" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="{x:Null}" Foreground="#FFFDF5F5" Grid.RowSpan="2"/>
-        <TextBox x:Name="txtissue" HorizontalAlignment="Left" Height="24" Margin="462,301,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="218" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="{x:Null}" Foreground="#FFFDF5F5" Grid.RowSpan="2"/>
-        <TextBox x:Name="txtexpiry" HorizontalAlignment="Left" Height="24" Margin="462,25,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="218" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="{x:Null}" Foreground="#FFFDF5F5" Grid.Row="1"/>
         <TextBox x:Name="txtauthority" HorizontalAlignment="Left" Height="24" Margin="761,24,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="218" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="{x:Null}" Foreground="#FFFDF5F5" Grid.Row="1"/>
         <TextBox x:Name="txtsexo" HorizontalAlignment="Left" Height="24" Margin="761,208,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="218" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="{x:Null}" Foreground="#FFFDF5F5" />
         <TextBox x:Name="txtid" HorizontalAlignment="Left" Height="24" Margin="761,254,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="218" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="{x:Null}" Foreground="#FFFDF5F5" />
@@ -59,17 +50,22 @@
                 </TransformGroup>
             </Label.RenderTransform>
         </Label>
+        <Image HorizontalAlignment="Stretch" Name="frameHolder"  VerticalAlignment="Stretch"  Stretch="Fill" Margin="44,89,765.8,16.4" Loaded="frameHolder_Loaded"/>
         <Label Content="Cédula de Identidad / I.D No." HorizontalAlignment="Left" Margin="815,228,0,0" VerticalAlignment="Top" Width="120" Foreground="White"/>
         <Label Content="Lugar de Nacimiento / Place of Birth " HorizontalAlignment="Left" Margin="815,278,0,0" VerticalAlignment="Top" Width="120" Foreground="White"/>
         <Label Content="Autoridad Emisora / Authority of Issue" HorizontalAlignment="Left" Margin="815,316,0,0" VerticalAlignment="Top" Width="120" Foreground="White" Grid.RowSpan="2"/>
-        <Button x:Name="btnOK" Content="OK" HorizontalAlignment="Left" Height="50" Margin="991,177,0,0" VerticalAlignment="Top" Width="163" Click="btnOK_Click" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FFFFF2F2" FontSize="14" FontFamily="Segoe UI Semibold" FontWeight="Bold" FontStyle="Italic"/>
-        <Button x:Name="btncancel" Content="Cancel" HorizontalAlignment="Left" Height="50" Margin="991,242,0,0" VerticalAlignment="Top" Width="177" Click="btncancel_Click" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FFFFF2F2" FontSize="14" FontFamily="Segoe UI Semibold" FontWeight="Bold" FontStyle="Italic"/>
+        <Button x:Name="btnOK" Content="OK" HorizontalAlignment="Left" Height="50" Margin="786,56.8,0,0" VerticalAlignment="Top" Width="163" Click="btnOK_Click" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FFFFF2F2" FontSize="14" FontFamily="Segoe UI Semibold" FontWeight="Bold" FontStyle="Italic" Grid.Row="1"/>
+        <Button x:Name="btncancel" Content="Cancel" HorizontalAlignment="Left" Height="50" Margin="977,56.8,0,0" VerticalAlignment="Top" Width="177" Click="btncancel_Click" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FFFFF2F2" FontSize="14" FontFamily="Segoe UI Semibold" FontWeight="Bold" FontStyle="Italic" Grid.Row="1"/>
         <TextBox x:Name="txtID" HorizontalAlignment="Left" Height="23" Margin="154,284,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="49" Visibility="Hidden" IsReadOnly="True"/>
         <Label Content="PASSPORT ISSUE" HorizontalAlignment="Left" Height="46" Margin="416,0,0,0" VerticalAlignment="Top" Width="328" FontSize="36" FontFamily="Mongolian Baiti" FontWeight="Bold" FontStyle="Italic" Foreground="#FFFFF3F3"/>
-        <Button x:Name="btnPrueba" Content="Compra" HorizontalAlignment="Left" Margin="196,34.6,0,0" VerticalAlignment="Top" Width="143" Click="btnPrueba_Click" Height="45" Grid.Row="1"/>
+        <Button x:Name="btnPrueba" Content="Compra" HorizontalAlignment="Left" Margin="281,34.8,0,0" VerticalAlignment="Top" Width="143" Click="btnPrueba_Click" Height="45" Grid.Row="1"/>
         <Image x:Name="pictureBox1" HorizontalAlignment="Left" Height="70" Margin="10,9.6,0,0" Grid.Row="1" VerticalAlignment="Top" Width="100"/>
-        <TextBox x:Name="txtEmail" HorizontalAlignment="Left" Height="24" Margin="158,119,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="218" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="{x:Null}" Foreground="#FFFDF5F5"/>
-        <Label Content="             Email / correo electrónico" HorizontalAlignment="Left" Margin="154,88,0,0" VerticalAlignment="Top" Width="220" Foreground="White"/>
+        <TextBox x:Name="txtEmail" HorizontalAlignment="Left" Height="24" Margin="462,77.8,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="218" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="{x:Null}" Foreground="#FFFDF5F5" Grid.Row="1"/>
+        <Label Content="             Email / correo electrónico" HorizontalAlignment="Left" Margin="460,48.8,0,0" VerticalAlignment="Top" Width="220" Foreground="White" Grid.Row="1"/>
+        <Button x:Name="btnCamara" Content="Encender cámara" HorizontalAlignment="Left" Margin="93,34.8,0,0" VerticalAlignment="Top" Width="143" Click="btnCamara_Click" Height="45" Grid.Row="1"/>
+        <TextBox x:Name="txtbirth" HorizontalAlignment="Left" Height="24" Margin="460,258,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="218" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="{x:Null}" Foreground="#FFFDF5F5"/>
+        <TextBox x:Name="txtissue" HorizontalAlignment="Left" Height="24" Margin="462,308,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="218" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="{x:Null}" Foreground="#FFFDF5F5" Grid.RowSpan="2"/>
+        <TextBox x:Name="txtexpiry" HorizontalAlignment="Left" Height="24" Margin="462,27,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="218" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="{x:Null}" Foreground="#FFFDF5F5" Grid.Row="1"/>
 
 
     </Grid>

@@ -34,7 +34,6 @@ namespace DGDA_AIRLINES
 
         private void ObtenerValoresFormulario()
         {
-            conexion.IdPasajero = Convert.ToInt32(txtIdPasajero.Text);
             conexion.Nombre = txtNombre.Text;
             conexion.Apellido = txtApellido.Text;
             conexion.IdPais = Convert.ToInt32(txtIdPais.Text);
@@ -42,6 +41,7 @@ namespace DGDA_AIRLINES
             conexion.Edad = txtEdad.Text;
             conexion.Telefono = txtTelefono.Text;
         }
+
         private void ObtenerValoresModificacion()
         {
             txtNombre.Text = "Vacio";
@@ -88,6 +88,7 @@ namespace DGDA_AIRLINES
             sqlConnection.Close();
             DGPasajeros.ItemsSource = dt.DefaultView;
         }
+
         private void btnVerPasajeros_Click(object sender, RoutedEventArgs e)
         {
             ObtenerValores();
@@ -179,6 +180,20 @@ namespace DGDA_AIRLINES
                 ObtenerValores();
                 LimpiarFormulario();
             }
+        }
+
+        private void btnRegresar_Click(object sender, RoutedEventArgs e)
+        {
+            Reservation reserva = new Reservation();
+            reserva.Show();
+            Close();
+        }
+
+        private void btnSiguiente_Click(object sender, RoutedEventArgs e)
+        {
+            Pago pagar = new Pago();
+            pagar.Show();
+            Close();
         }
     }
 }

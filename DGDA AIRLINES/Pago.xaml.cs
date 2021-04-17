@@ -67,7 +67,7 @@ namespace DGDA_AIRLINES
                 || txtNumerosTarjeta16.Text == string.Empty || cmbMetodo.SelectedIndex == -1 || txtNumerosCVV1.Text == string.Empty
                 || txtNumerosCVV2.Text == string.Empty || txtNumerosCVV3.Text == string.Empty || txtNumerosExpiracion1.Text == string.Empty
                 || txtNumerosExpiracion2.Text == string.Empty || txtNumerosExpiracion3.Text == string.Empty || txtNumerosExpiracion4.Text == string.Empty
-                || txtCorreoEmpresa.Text == string.Empty || cmbAnios.SelectedIndex == -1)
+                || txtCorreoEmpresa.Text == string.Empty)
             {
                 MessageBox.Show("Por favor ingresa todos los valores para poder realizar el pago", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 return false;
@@ -245,83 +245,30 @@ namespace DGDA_AIRLINES
                 //Se presentó un problema debido a una referencia ambigua pero se encontró la solucion en la siguiente página:
                 //https://docs.microsoft.com/en-us/dotnet/csharp/misc/cs0104?f1url=%3FappId%3Droslyn%26k%3Dk(CS0104)
                 Aspose.Pdf.Page paginas = documento.Pages.Add();
-                if (lblDistincion.Content.ToString() == "Pago por emisión pasaporte")
-                {
-                    paginas.Paragraphs.Add(new Aspose.Pdf.Text.TextFragment("****************************************************************************"));
-                    paginas.Paragraphs.Add(new Aspose.Pdf.Text.TextFragment("                                           DGDA-Airlines"));
-                    paginas.Paragraphs.Add(new Aspose.Pdf.Text.TextFragment("                                 Oficina de emisión de pasaporte"));
-                    paginas.Paragraphs.Add(new Aspose.Pdf.Text.TextFragment("                                           Tel: 7777-7777"));
-                    paginas.Paragraphs.Add(new Aspose.Pdf.Text.TextFragment("                                        " + tiempo));
-                    paginas.Paragraphs.Add(new Aspose.Pdf.Text.TextFragment("****************************************************************************"));
-                    paginas.Paragraphs.Add(new Aspose.Pdf.Text.TextFragment("****************************************************************************"));
-                    paginas.Paragraphs.Add(new Aspose.Pdf.Text.TextFragment(" "));
-                    paginas.Paragraphs.Add(new Aspose.Pdf.Text.TextFragment(" "));
-                    paginas.Paragraphs.Add(new Aspose.Pdf.Text.TextFragment("Nombre(s): Javier Danilo"));
-                    paginas.Paragraphs.Add(new Aspose.Pdf.Text.TextFragment("Apellido(s): Zavala Meza"));
-                    paginas.Paragraphs.Add(new Aspose.Pdf.Text.TextFragment("Numero de identidad: 0318199802248"));
-                    paginas.Paragraphs.Add(new Aspose.Pdf.Text.TextFragment("Pasaporte valido por: " + cmbAnios.Text + " años."));
-                    paginas.Paragraphs.Add(new Aspose.Pdf.Text.TextFragment("-----------------------------------------------------------------------------------------"));
-                    paginas.Paragraphs.Add(new Aspose.Pdf.Text.TextFragment("Producto                                                                                  Precio"));
-                    paginas.Paragraphs.Add(new Aspose.Pdf.Text.TextFragment("-----------------------------------------------------------------------------------------"));
-                    paginas.Paragraphs.Add(new Aspose.Pdf.Text.TextFragment("Pasaporte por: " + cmbAnios.Text + " años                                                               $" + precioPasaporte));
-                    paginas.Paragraphs.Add(new Aspose.Pdf.Text.TextFragment("-----------------------------------------------------------------------------------------"));
-                    paginas.Paragraphs.Add(new Aspose.Pdf.Text.TextFragment(" "));
-                    paginas.Paragraphs.Add(new Aspose.Pdf.Text.TextFragment(" "));
-                    paginas.Paragraphs.Add(new Aspose.Pdf.Text.TextFragment("-----------------------------------------------------------------------------------------"));
-                    paginas.Paragraphs.Add(new Aspose.Pdf.Text.TextFragment("Tarjeta de " + cmbMetodo.Text + " remitida"));
-                    paginas.Paragraphs.Add(new Aspose.Pdf.Text.TextFragment("           (Nombre tarjeta: " + nombreTarjeta + ")"));
-                    paginas.Paragraphs.Add(new Aspose.Pdf.Text.TextFragment("           (Numero tarjeta: XXXX-XXXX-XXXX-" + txtNumerosTarjeta13.Text + txtNumerosTarjeta14.Text + txtNumerosTarjeta15.Text + txtNumerosTarjeta16.Text + ")"));
-                }
-                else if (lblDistincion.Content.ToString() == "Pago por boleto de vuelo")
-                {
-                    paginas.Paragraphs.Add(new Aspose.Pdf.Text.TextFragment("****************************************************************************"));
-                    paginas.Paragraphs.Add(new Aspose.Pdf.Text.TextFragment("                                           DGDA-Airlines"));
-                    paginas.Paragraphs.Add(new Aspose.Pdf.Text.TextFragment("                                 Oficina de venta de boletos de vuelo"));
-                    paginas.Paragraphs.Add(new Aspose.Pdf.Text.TextFragment("                                           Tel: 7777-7777"));
-                    paginas.Paragraphs.Add(new Aspose.Pdf.Text.TextFragment("                                        " + tiempo));
-                    paginas.Paragraphs.Add(new Aspose.Pdf.Text.TextFragment("****************************************************************************"));
-                    paginas.Paragraphs.Add(new Aspose.Pdf.Text.TextFragment("****************************************************************************"));
-                    paginas.Paragraphs.Add(new Aspose.Pdf.Text.TextFragment(" "));
-                    paginas.Paragraphs.Add(new Aspose.Pdf.Text.TextFragment(" "));
-                    paginas.Paragraphs.Add(new Aspose.Pdf.Text.TextFragment("Nombre(s): Javier Danilo"));
-                    paginas.Paragraphs.Add(new Aspose.Pdf.Text.TextFragment("Apellido(s): Zavala Meza"));
-                    paginas.Paragraphs.Add(new Aspose.Pdf.Text.TextFragment("Numero de identidad: 0318199802248"));
-                    paginas.Paragraphs.Add(new Aspose.Pdf.Text.TextFragment("Pasaporte valido por: " + cmbAnios.Text + " años."));
-                    paginas.Paragraphs.Add(new Aspose.Pdf.Text.TextFragment("-----------------------------------------------------------------------------------------"));
-                    paginas.Paragraphs.Add(new Aspose.Pdf.Text.TextFragment("Producto                                                                                  Precio"));
-                    paginas.Paragraphs.Add(new Aspose.Pdf.Text.TextFragment("-----------------------------------------------------------------------------------------"));
-                    paginas.Paragraphs.Add(new Aspose.Pdf.Text.TextFragment("Boleto hacia: " + cmbAnios.Text + "                                                                     $" + precioPasaporte));
-                    paginas.Paragraphs.Add(new Aspose.Pdf.Text.TextFragment("Pasaporte valido por: " + cmbAnios.Text + " años."));
-                    paginas.Paragraphs.Add(new Aspose.Pdf.Text.TextFragment("-----------------------------------------------------------------------------------------"));
-                    paginas.Paragraphs.Add(new Aspose.Pdf.Text.TextFragment(" "));
-                    paginas.Paragraphs.Add(new Aspose.Pdf.Text.TextFragment(" "));
-                    paginas.Paragraphs.Add(new Aspose.Pdf.Text.TextFragment("-----------------------------------------------------------------------------------------"));
-                    paginas.Paragraphs.Add(new Aspose.Pdf.Text.TextFragment("Tarjeta de " + cmbMetodo.Text + " remitida"));
-                    paginas.Paragraphs.Add(new Aspose.Pdf.Text.TextFragment("           (Nombre tarjeta: " + nombreTarjeta + ")"));
-                    paginas.Paragraphs.Add(new Aspose.Pdf.Text.TextFragment("           (Numero tarjeta: XXXX-XXXX-XXXX-" + txtNumerosTarjeta13.Text + txtNumerosTarjeta14.Text + txtNumerosTarjeta15.Text + txtNumerosTarjeta16.Text + ")"));
-                }
-
-                int lowerLeftX = 200;
-                int lowerLeftY = 200;
-                int upperRightX = 300;
-                int upperRightY = 300;
-                Document pdfDocument = new Document("RECIBO.pdf");
-                Aspose.Pdf.Page page = documento.Pages[1];
-
-                FileStream imageStream = new FileStream("ln.png", FileMode.Open);
-                page.Resources.Images.Add(imageStream);
-
-                page.Contents.Add(new Aspose.Pdf.Operators.GSave());
-                Aspose.Pdf.Rectangle rectangle = new Aspose.Pdf.Rectangle(lowerLeftX, lowerLeftY, upperRightX, upperRightY);
-                Aspose.Pdf.Matrix matrix = new Aspose.Pdf.Matrix(new double[] { rectangle.URX - rectangle.LLX, 0, 0, rectangle.URY - rectangle.LLY, rectangle.LLX, rectangle.LLY });
-
-                page.Contents.Add(new Aspose.Pdf.Operators.ConcatenateMatrix(matrix));
-                XImage ximage = page.Resources.Images[page.Resources.Images.Count];
-
-                page.Contents.Add(new Aspose.Pdf.Operators.Do(ximage.Name));
-
-                page.Contents.Add(new Aspose.Pdf.Operators.GRestore());
-
+                paginas.Paragraphs.Add(new Aspose.Pdf.Text.TextFragment("****************************************************************************"));
+                paginas.Paragraphs.Add(new Aspose.Pdf.Text.TextFragment("                                           DGDA-Airlines"));
+                paginas.Paragraphs.Add(new Aspose.Pdf.Text.TextFragment("                                 Oficina de emisión de pasaporte"));
+                paginas.Paragraphs.Add(new Aspose.Pdf.Text.TextFragment("                                           Tel: 7777-7777"));
+                paginas.Paragraphs.Add(new Aspose.Pdf.Text.TextFragment("                                        " + tiempo));
+                paginas.Paragraphs.Add(new Aspose.Pdf.Text.TextFragment("****************************************************************************"));
+                paginas.Paragraphs.Add(new Aspose.Pdf.Text.TextFragment("****************************************************************************"));
+                paginas.Paragraphs.Add(new Aspose.Pdf.Text.TextFragment(" "));
+                paginas.Paragraphs.Add(new Aspose.Pdf.Text.TextFragment(" "));
+                paginas.Paragraphs.Add(new Aspose.Pdf.Text.TextFragment("Nombre(s): Javier Danilo"));
+                paginas.Paragraphs.Add(new Aspose.Pdf.Text.TextFragment("Apellido(s): Zavala Meza"));
+                paginas.Paragraphs.Add(new Aspose.Pdf.Text.TextFragment("Numero de identidad: 0318199802248"));
+                paginas.Paragraphs.Add(new Aspose.Pdf.Text.TextFragment("Pasaporte valido por: " + cmbAnios.Text + " años."));
+                paginas.Paragraphs.Add(new Aspose.Pdf.Text.TextFragment("-----------------------------------------------------------------------------------------"));
+                paginas.Paragraphs.Add(new Aspose.Pdf.Text.TextFragment("Producto                                                                                  Precio"));
+                paginas.Paragraphs.Add(new Aspose.Pdf.Text.TextFragment("-----------------------------------------------------------------------------------------"));
+                paginas.Paragraphs.Add(new Aspose.Pdf.Text.TextFragment("Pasaporte por: " + cmbAnios.Text + " años                                                               $" + precioPasaporte));
+                paginas.Paragraphs.Add(new Aspose.Pdf.Text.TextFragment("-----------------------------------------------------------------------------------------"));
+                paginas.Paragraphs.Add(new Aspose.Pdf.Text.TextFragment(" "));
+                paginas.Paragraphs.Add(new Aspose.Pdf.Text.TextFragment(" "));
+                paginas.Paragraphs.Add(new Aspose.Pdf.Text.TextFragment("-----------------------------------------------------------------------------------------"));
+                paginas.Paragraphs.Add(new Aspose.Pdf.Text.TextFragment("Tarjeta de " + cmbMetodo.Text + " remitida"));
+                paginas.Paragraphs.Add(new Aspose.Pdf.Text.TextFragment("           (Nombre tarjeta: " + nombreTarjeta + ")"));
+                paginas.Paragraphs.Add(new Aspose.Pdf.Text.TextFragment("           (Numero tarjeta: XXXX-XXXX-XXXX-" + txtNumerosTarjeta13.Text + txtNumerosTarjeta14.Text + txtNumerosTarjeta15.Text + txtNumerosTarjeta16.Text + ")"));
 
                 documento.Save("RECIBO.pdf");
                 MessageBox.Show("Recibo generado.");
@@ -346,14 +293,16 @@ namespace DGDA_AIRLINES
 
         private void btnRegresar_Click(object sender, RoutedEventArgs e)
         {
-            Pasaporte passport = new Pasaporte();
-            passport.Show();
-            Hide();
+            Menu menu = new Menu();
+            menu.Show();
+            Close();
         }
 
         private void btnSiguiente_Click(object sender, RoutedEventArgs e)
         {
-
+            Bank_LoadingScreen screen = new Bank_LoadingScreen();
+            screen.Show();
+            Close();
         }
     }
 }

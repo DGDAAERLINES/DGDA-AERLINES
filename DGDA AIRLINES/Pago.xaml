@@ -23,7 +23,7 @@
 
 
         <Button x:Name="CancelarTransaccion" Content="Cancel transation" BorderBrush="#FF5722" BorderThickness="2" Background="Transparent" Foreground="White" HorizontalAlignment="Left" Margin="65,558,0,0" VerticalAlignment="Top" Width="304" Height="55" Click="Regresar_Click" FontSize="28"/>
-        <ComboBox x:Name="cmbMetodo" HorizontalAlignment="Left" Foreground="White" Margin="65,106,0,0" VerticalAlignment="Top" Width="177" Height="52" RenderTransformOrigin="0.065,0.244" FontSize="25">
+        <ComboBox x:Name="cmbMetodo" HorizontalAlignment="Left" Foreground="#FF0A0A0A" Margin="65,106,0,0" VerticalAlignment="Top" Width="177" Height="52" RenderTransformOrigin="0.065,0.244" FontSize="25">
             <ComboBoxItem Content="Debito"/>
             <ComboBoxItem Content="Crédito"/>
         </ComboBox>
@@ -41,12 +41,12 @@
         <Label Content="-" HorizontalAlignment="Left" Margin="489,228,0,0" Foreground="White" VerticalAlignment="Top" RenderTransformOrigin="-0.049,-0.128" Width="24" Height="48" FontSize="30"/>
         <TextBox x:Name="txtNumerosTarjeta9" HorizontalAlignment="Left" Foreground="White" Height="48" Margin="513,228,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" MaxLength="1" FontSize="30" MaxLines="1" TextAlignment="Center"/>
         <TextBox x:Name="txtNumerosTarjeta10" HorizontalAlignment="Left" Foreground="White" Height="48" Margin="563,228,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" MaxLength="1" FontSize="30" MaxLines="1" TextAlignment="Center"/>
-        <TextBox x:Name="txtNumerosTarjeta11" HorizontalAlignment="Left" Height="48" Margin="613,228,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" MaxLength="1" FontSize="30" MaxLines="1" TextAlignment="Center"/>
+        <TextBox x:Name="txtNumerosTarjeta11" HorizontalAlignment="Left" Height="48" Margin="613,228,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" MaxLength="1" FontSize="30" MaxLines="1" TextAlignment="Center" Foreground="#FFF7F2F2"/>
         <TextBox x:Name="txtNumerosTarjeta12" HorizontalAlignment="Left" Foreground="White" Height="48" Margin="663,228,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" MaxLength="1" FontSize="30" MaxLines="1" TextAlignment="Center"/>
         <Label Content="-" HorizontalAlignment="Left" Margin="713,228,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.049,-0.128" Width="24" Height="48" FontSize="30"/>
-        <TextBox x:Name="txtNumerosTarjeta13" HorizontalAlignment="Left" Height="48" Margin="737,228,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" MaxLength="1" FontSize="30" MaxLines="1" TextAlignment="Center"/>
+        <TextBox x:Name="txtNumerosTarjeta13" HorizontalAlignment="Left" Height="48" Margin="737,228,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" MaxLength="1" FontSize="30" MaxLines="1" TextAlignment="Center" Foreground="#FFFFFBFB"/>
         <TextBox x:Name="txtNumerosTarjeta14" HorizontalAlignment="Left" Foreground="White" Height="48" Margin="787,228,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" MaxLength="1" FontSize="30" MaxLines="1" TextAlignment="Center"/>
-        <TextBox x:Name="txtNumerosTarjeta15" HorizontalAlignment="Left" Height="48" Margin="837,228,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" MaxLength="1" FontSize="30" MaxLines="1" TextAlignment="Center"/>
+        <TextBox x:Name="txtNumerosTarjeta15" HorizontalAlignment="Left" Height="48" Margin="837,228,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" MaxLength="1" FontSize="30" MaxLines="1" TextAlignment="Center" Foreground="#FFFBF8F8"/>
         <TextBox x:Name="txtNumerosTarjeta16" HorizontalAlignment="Left" Foreground="White" Height="48" Margin="887,228,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" MaxLength="1" FontSize="30" MaxLines="1" TextAlignment="Center"/>
         <Label Content="/" HorizontalAlignment="Left" Margin="918,32,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.049,-0.128" Width="50" Height="146" FontSize="100"/>
         <TextBox x:Name="txtNumerosExpiracion1" Foreground="White" HorizontalAlignment="Left" Height="48" Margin="65,328,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" MaxLength="1" FontSize="30" MaxLines="1" TextAlignment="Center"/>
@@ -60,7 +60,7 @@
         <TextBox x:Name="txtNumerosCVV3" HorizontalAlignment="Left" Foreground="White" Height="48" Margin="563,328,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" MaxLength="1" FontSize="30" MaxLines="1" TextAlignment="Center"/>
         <Label Content="CVV" HorizontalAlignment="Left" Foreground="White" Margin="463,276,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.049,-0.128" Width="73" Height="52" FontSize="30"/>
         <Button x:Name="btnCVV" Content="?" HorizontalAlignment=" Left" Margin="553,281,0,0" VerticalAlignment="Top" Width="49" RenderTransformOrigin="0.5,0.5" Height="42" FontSize="30" ToolTip="3 ultimos numeros al reverso de la tarjeta."/>
-        <TextBox x:Name="txtCorreo" HorizontalAlignment="Left" Height="50" Margin="65,450,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="570" FontSize="30" />
+        <TextBox x:Name="txtCorreo" HorizontalAlignment="Left" Height="50" Margin="65,450,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="570" FontSize="30" Foreground="#FFFBFBFB" />
         <Label Content="Email" HorizontalAlignment="Left" Foreground="White" Margin="65,398,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.049,-0.128" Width="290" Height="52" FontSize="30"/>
         <TextBox x:Name="txtMensaje" HorizontalAlignment="Left" Height="23" Margin="787,376,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" Visibility="Hidden"/>
         <TextBox x:Name="txtNumTarjeta" HorizontalAlignment="Left" Height="23" Margin="766,346,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" Visibility="Hidden"/>

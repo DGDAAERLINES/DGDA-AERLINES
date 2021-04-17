@@ -17,8 +17,9 @@ namespace DGDA_AIRLINES
     }
     class Passport
     {
+
         // Variables miembro
-        private static string connectionString = ConfigurationManager.ConnectionStrings["PASAPORTE.Properties.Settings.DGDA_Airlines"].ConnectionString;
+        private static string connectionString = ConfigurationManager.ConnectionStrings["DGDA_AIRLINES.Properties.Settings.DGDA_AIRLINES"].ConnectionString;
         private SqlConnection sqlConnection = new SqlConnection(connectionString);
         // Propiedades
         // Propiedades ID pasaporte
@@ -162,8 +163,8 @@ namespace DGDA_AIRLINES
             try
             {
                 // Query de inserción
-                string query = @"INSERT INTO Pasaportes.Pasaporte (PasaporteNo, Abrebiaturat, Abrebiaturap, Nacionalidad, Apellidos, Nombres, Abrebiaturag, NIdentida, FechaDeNacimiento, FechaDeEmision, FechaDeVencimiento, Pais, AutoridadEmisora)
-                                                        VALUES (@PasaporteNo, @Abrebiaturat, @Abrebiaturap, @Nacionalidad, @Apellidos, @Nombres, @Abrebiaturag, @NIdentida, @FechaDeNacimiento, @FechaDeEmision, @FechaDeVencimiento, @Pais, @AutoridadEmisora)";
+                string query = @"INSERT INTO Pasaportes.Pasaporte (Abrebiaturat, Abrebiaturap, PasaporteNo, Apellidos, Nombres, FechaDeNacimiento, Nacionalidad, Abrebiaturag, NIdentida, Pais, FechaDeEmision, FechaDeVencimiento, AutoridadEmisora)
+                                                        VALUES (@Abrebiaturat, @Abrebiaturap, @PasaporteNo, @Apellidos, @Nombres, @FechaDeNacimiento, @Nacionalidad, @Abrebiaturag, @NIdentida, @Pais, @FechaDeEmision, @FechaDeVencimiento, @AutoridadEmisora)";
 
                 // Establecer la conexión
                 sqlConnection.Open();
@@ -172,18 +173,18 @@ namespace DGDA_AIRLINES
                 SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
 
                 // Establecer los valores de los parámetros
-                sqlCommand.Parameters.AddWithValue("@PasaporteNo", Pasaporte.PassportNo);
                 sqlCommand.Parameters.AddWithValue("@Abrebiaturat", ObtenerTipo(Pasaporte.Type));
                 sqlCommand.Parameters.AddWithValue("@Abrebiaturap", Pasaporte.IssuingState);
-                sqlCommand.Parameters.AddWithValue("@Nacionalidad", Pasaporte.Nationality);
+                sqlCommand.Parameters.AddWithValue("@PasaporteNo", Pasaporte.PassportNo);
                 sqlCommand.Parameters.AddWithValue("@Apellidos", Pasaporte.Surname);
                 sqlCommand.Parameters.AddWithValue("@Nombres", Pasaporte.GivenName);
+                sqlCommand.Parameters.AddWithValue("@FechaDeNacimiento", Pasaporte.DateofBirth);
+                sqlCommand.Parameters.AddWithValue("@Nacionalidad", Pasaporte.Nationality);
                 sqlCommand.Parameters.AddWithValue("@Abrebiaturag", Pasaporte.Sex);
                 sqlCommand.Parameters.AddWithValue("@NIdentida", Pasaporte.IDNo);
-                sqlCommand.Parameters.AddWithValue("@FechaDeNacimiento", Pasaporte.DateofBirth.ToString("yyyy-MM-dd HH:mm:ss.fff"));
+                sqlCommand.Parameters.AddWithValue("@Pais", Pasaporte.PlaceofBirth);
                 sqlCommand.Parameters.AddWithValue("@FechaDeEmision", Pasaporte.DateofIssue);
                 sqlCommand.Parameters.AddWithValue("@FechaDeVencimiento", Pasaporte.DateofExpiry);
-                sqlCommand.Parameters.AddWithValue("@Pais", Pasaporte.PlaceofBirth);
                 sqlCommand.Parameters.AddWithValue("@AutoridadEmisora", Pasaporte.AuthorityofIssue);
 
                 // Ejecutar el comando de inserción
@@ -283,7 +284,7 @@ namespace DGDA_AIRLINES
                 sqlCommand.Parameters.AddWithValue("@PasaporteNo", Pasaporte.PassportNo);
                 sqlCommand.Parameters.AddWithValue("@Apellidos", Pasaporte.Surname);
                 sqlCommand.Parameters.AddWithValue("@Nombres", Pasaporte.GivenName);
-                sqlCommand.Parameters.AddWithValue("@FechaDeNacimiento", Pasaporte.DateofBirth.ToString("yyyy-MM-dd HH:mm:ss.fff"));
+                sqlCommand.Parameters.AddWithValue("@FechaDeNacimiento", Pasaporte.DateofBirth);
                 sqlCommand.Parameters.AddWithValue("@Nacionalidad", Pasaporte.Nationality);
                 sqlCommand.Parameters.AddWithValue("@Abrebiaturag", Pasaporte.Sex);
                 sqlCommand.Parameters.AddWithValue("@NIdentida", Pasaporte.IDNo);

@@ -161,7 +161,7 @@
             <Button
             Style="{StaticResource MaterialDesignRaisedLightButton}"
             materialDesign:ButtonAssist.CornerRadius="5"
-            ToolTip="Bank" Margin="10,214,989,360"  BorderBrush="#FF5722" BorderThickness="2" Height="Auto" Grid.ColumnSpan="2" >
+            ToolTip="Bank" Margin="10,214,989,360"  BorderBrush="#FF5722" BorderThickness="2" Height="Auto" Grid.ColumnSpan="2" Click="Button_Click_4" >
                 <Button.Background>
                     <ImageBrush ImageSource="Bank.png" Stretch="Uniform"/>
                 </Button.Background>

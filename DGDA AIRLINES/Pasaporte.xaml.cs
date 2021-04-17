@@ -11,7 +11,11 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Drawing;
+using System.Drawing.Imaging;
 //Librerias para webcam
+using AForge.Video.DirectShow;
+using AForge.Video;
 using System.IO;
 using System.Threading;
 using System.Net.Mail;
@@ -23,36 +27,36 @@ namespace DGDA_AIRLINES
     /// </summary>
     public partial class Pasaporte : Window
     {
-        ////Camara web//
-        //VideoCaptureDevice LocalWebCam;
-        //public FilterInfoCollection LocalWebCamsCollection;
-        //private readonly BitmapImage latestFrame;
+        //Camara web//
+        VideoCaptureDevice LocalWebCam;
+        public FilterInfoCollection LocalWebCamsCollection;
+        private readonly BitmapImage latestFrame;
 
-        //void Cam_NewFrame(object sender, NewFrameEventArgs eventArgs)
-        //{
-        //    try
-        //    {
-        //        System.Drawing.Image img = (Bitmap)eventArgs.Frame.Clone();
+        void Cam_NewFrame(object sender, NewFrameEventArgs eventArgs)
+        {
+            try
+            {
+                System.Drawing.Image img = (Bitmap)eventArgs.Frame.Clone();
 
-        //        MemoryStream ms = new MemoryStream();
-        //        img.Save(ms, ImageFormat.Bmp);
-        //        ms.Seek(0, SeekOrigin.Begin);
-        //        BitmapImage bi = new BitmapImage();
-        //        bi.BeginInit();
-        //        bi.StreamSource = ms;
-        //        bi.EndInit();
+                MemoryStream ms = new MemoryStream();
+                img.Save(ms, ImageFormat.Bmp);
+                ms.Seek(0, SeekOrigin.Begin);
+                BitmapImage bi = new BitmapImage();
+                bi.BeginInit();
+                bi.StreamSource = ms;
+                bi.EndInit();
 
-        //        bi.Freeze();
-        //        Dispatcher.BeginInvoke(new ThreadStart(delegate
-        //        {
-        //            frameHolder.Source = bi;
-        //        }));
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        Console.WriteLine(ex);
-        //    }
-        //}
+                bi.Freeze();
+                Dispatcher.BeginInvoke(new ThreadStart(delegate
+                {
+                    frameHolder.Source = bi;
+                }));
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
+        }
 
         /*void Cam_NewFrame(object sender, NewFrameEventArgs eventArgs)
         {
@@ -102,7 +106,6 @@ namespace DGDA_AIRLINES
         {
             InitializeComponent();
 
-
             // Llenar el combobox con los tipos del pasaporte
             cmbtype.ItemsSource = Enum.GetValues(typeof(Type));
 
@@ -129,7 +132,7 @@ namespace DGDA_AIRLINES
             txtpassportno.Text = string.Empty;
             txtsurname.Text = string.Empty;
             txtname.Text = string.Empty;
-            txtbirth.SelectedDate = null;
+            txtbirth.Text = string.Empty;
             txtnationality.Text = string.Empty;
             txtsexo.Text = string.Empty;
             txtid.Text = string.Empty;
@@ -143,7 +146,7 @@ namespace DGDA_AIRLINES
         private bool ValidarCampos()
         {
             if (txtpaisemisor.Text == string.Empty || txtpassportno.Text == string.Empty || txtsurname.Text == string.Empty || txtname.Text == string.Empty ||
-                /*txtbirth.Text == string.Empty ||*/ txtnationality.Text == string.Empty || txtsexo.Text == string.Empty || txtid.Text == string.Empty ||
+                txtbirth.Text == string.Empty || txtnationality.Text == string.Empty || txtsexo.Text == string.Empty || txtid.Text == string.Empty ||
                 txtplace.Text == string.Empty || txtissue.Text == string.Empty || txtexpiry.Text == string.Empty || txtauthority.Text == string.Empty)
             {
                 //Mensaje de condicion debe llenar todos los campos no pueden quedar vacios
@@ -170,13 +173,12 @@ namespace DGDA_AIRLINES
         private void ObtenerValores()
         {
             // Asigna los valores de los textbox para que se conviertan en las propiedades del pasaporte
-            //Pasaporte.Type = (Type)cmbtype.SelectedValue;
             passport.Type = (Type)cmbtype.SelectedValue;
             passport.IssuingState = txtpaisemisor.Text;
             passport.PassportNo = txtpassportno.Text;
             passport.Surname = txtsurname.Text;
             passport.GivenName = txtname.Text;
-            passport.DateofBirth = Convert.ToDateTime(txtbirth.DisplayDate);
+            passport.DateofBirth = Convert.ToDateTime(txtbirth.Text);
             passport.Nationality = txtnationality.Text;
             passport.Sex = txtsexo.Text;
             passport.IDNo = txtid.Text;
@@ -184,6 +186,7 @@ namespace DGDA_AIRLINES
             passport.DateofIssue = Convert.ToDateTime(txtissue.Text);
             passport.DateofExpiry = Convert.ToDateTime(txtexpiry.Text);
             passport.AuthorityofIssue = txtauthority.Text;
+
         }
 
         // Llena las cajas de texto con los valores del DataGrid
@@ -198,7 +201,7 @@ namespace DGDA_AIRLINES
             txtpassportno.Text = objpassport.PassportNo;
             txtsurname.Text = objpassport.Surname;
             txtname.Text = objpassport.GivenName;
-            txtbirth.SelectedDate = objpassport.DateofBirth;
+            txtbirth.Text = objpassport.DateofBirth.ToString();
             txtnationality.Text = objpassport.Nationality;
             txtsexo.Text = objpassport.Sex;
             txtid.Text = objpassport.IDNo;
@@ -234,7 +237,7 @@ namespace DGDA_AIRLINES
                 finally
                 {
                     //Realiza la limpieza 
-                    //LimpiarTextbox();
+                    LimpiarTextbox();
                     ObtenerPasaportes();
                 }
             }
@@ -431,6 +434,25 @@ namespace DGDA_AIRLINES
             Hide();
             pago.ElegirOpcion(opcion);
             SendEmail();
+        }
+
+        private void btnCamara_Click(object sender, RoutedEventArgs e)
+        {
+            LocalWebCamsCollection = new FilterInfoCollection(FilterCategory.VideoInputDevice);
+            LocalWebCam = new VideoCaptureDevice(LocalWebCamsCollection[0].MonikerString);
+            LocalWebCam.NewFrame += new NewFrameEventHandler(Cam_NewFrame);
+
+            MessageBoxResult mensaje = MessageBox.Show("¿Desea encender la camara?", "Confirmar", MessageBoxButton.YesNo, MessageBoxImage.Information);
+            if (mensaje == MessageBoxResult.Yes)
+            {
+                LocalWebCam.Start();
+            }
+        }
+
+        private void frameHolder_Loaded(object sender, RoutedEventArgs e)
+        {
+
+            InitializeComponent();
         }
     }
 }

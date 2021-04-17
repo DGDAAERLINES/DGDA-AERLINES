@@ -6,7 +6,7 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:DGDA_AIRLINES"
         mc:Ignorable="d"
-        Title="Login" Height="450" Width="455" VerticalAlignment="Center" HorizontalAlignment="Center" WindowStyle="None" AllowsTransparency="True" WindowState="Maximized" Cursor="Hand">
+        Title="Login"   Height="650" Width="1183"  WindowStyle="None" WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid>
             <Grid.RowDefinitions>

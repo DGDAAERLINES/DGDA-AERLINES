@@ -28,31 +28,10 @@ namespace DGDA_AIRLINES
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
-            try
-            {
-                // Mostrar un mensaje de confirmación
-                MessageBoxResult result = MessageBox.Show("You can issue the passport if you have already made your payment at the Bank", "Confirmar", MessageBoxButton.YesNo, MessageBoxImage.Warning);
-
-                if (result == MessageBoxResult.Yes)
-                {
-                    // Mostrar formulario de Emision de pasaporte
-                    // iniciarSesion = new MainWindow();
-                    //iniciarSesion.Show();
-                    Pasaporte passport = new Pasaporte();
-                    passport.Show();
-                    Close();
-                }
-                else
-                {
-                    MessageBox.Show("You should first pay");
-                }
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("You should first pay");
-                Console.WriteLine(ex.Message);
-            }
+           
+             Pasaporte passport = new Pasaporte();
+             passport.Show();
+             Close();
         }
 
         private void Button_Click_3(object sender, RoutedEventArgs e)
@@ -66,6 +45,14 @@ namespace DGDA_AIRLINES
         private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+        private void Button_Click_4(object sender, RoutedEventArgs e)
+        {
+            Pago pago = new Pago();
+            pago.Show();
+            Hide();
+
         }
     }
 
