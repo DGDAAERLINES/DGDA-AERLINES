@@ -116,6 +116,12 @@ namespace DGDA_AIRLINES
 
         }
 
+        private void Valorestxt()
+        {
+            Reservaciones objvuelo = new Reservaciones();
+            objvuelo = (Reservaciones)DataG.SelectedItem;
+            txtID.Text = objvuelo.ID.ToString();
+        }
 
         private void ValoresFormularioDesdeObjeto()
         {
@@ -317,5 +323,48 @@ namespace DGDA_AIRLINES
         {
             Close();
         }
+
+        private void btnRegresar_Click(object sender, RoutedEventArgs e)
+        {
+            // Retornar el usuario al formulario de Menu
+            Menu Menu = new Menu();
+            Menu.Show();
+            Close();
+        }
+
+        private void btnSiguiente_Click(object sender, RoutedEventArgs e)
+        {
+          
+            Reservaciones objvuelo = new Reservaciones();
+            objvuelo = (Reservaciones)DataG.SelectedItem;
+            int idvuelo = objvuelo.ID;
+
+            try
+            {
+                // Obtener la información del vuelo
+                Vuelo = Vuelo.BuscarVuelo(idvuelo);
+
+                // Llenar los valores del formulario
+                Valorestxt();
+           
+                // Retornar el usuario al formulario de Precios
+                Prices prices = new Prices(Convert.ToInt32(txtID.Text));
+                prices.Show();
+                Close();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred while modifying the flight...");
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                Obtenervuelos();
+            }
+        }
     }
+
+       
+    
 }

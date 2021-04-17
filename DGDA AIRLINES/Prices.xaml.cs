@@ -27,10 +27,10 @@ namespace DGDA_AIRLINES
         private double precioFirst;
         private double precioEconomyDollars;
         private double precioFirstDollars;
-        public Prices()
+        public Prices(int ID)
         {
             InitializeComponent();
-
+            this.idVuelo = ID;
             try
             {
                 // Valida que se haya seleccionado un vuelo
@@ -42,9 +42,9 @@ namespace DGDA_AIRLINES
                 else
                 {
                     // Mostrar los lugares de origen y destino 
-                    LlenarTextBox();
+                   // LlenarTextBox();
                     // Calcular el precio del vuelo
-                    CalcularPrecios();
+                   // CalcularPrecios();
                 }
             }
             catch (Exception e)
@@ -253,6 +253,27 @@ namespace DGDA_AIRLINES
                 MessageBox.Show("Error selecting this price");
                 Console.WriteLine(ex.Message);
             }
+        }
+
+        private void btnexit_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnRegresar_Click(object sender, RoutedEventArgs e)
+        {
+            // Retornar el usuario al formulario de Menu
+           Reservation reservacion = new Reservation();
+            reservacion.Show();
+            Close();
+        }
+
+        private void btnSiguiente_Click(object sender, RoutedEventArgs e)
+        {
+            // Retornar el usuario al formulario de Menu
+           CRUD_Pasajeros Cpasajeros = new CRUD_Pasajeros();
+            Cpasajeros.Show();
+            Close();
         }
     }
 }

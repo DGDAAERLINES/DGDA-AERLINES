@@ -12,7 +12,7 @@ namespace DGDA_AIRLINES
     class Price
     {
         // Variables miembro
-        private static string connectionString = ConfigurationManager.ConnectionStrings["Precios.Properties.Settings.DGDA_AIRLINES"].ConnectionString;
+        private static string connectionString = ConfigurationManager.ConnectionStrings["DGDA_AIRLINES.Properties.Settings.DGDA_AIRLINES"].ConnectionString;
         private SqlConnection sqlConnection = new SqlConnection(connectionString);
         public int destinoKey;
         public string origen;

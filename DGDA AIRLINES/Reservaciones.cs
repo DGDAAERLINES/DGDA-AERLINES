@@ -205,7 +205,7 @@ namespace DGDA_AIRLINES
             {
                 // Query de actualización
                 string query = @"UPDATE Aerlines.Vuelo
-                               SET fechaSalida= @fechaSalida,fechaRegreso = @fechaRegreso, Origen=@Origen, Destino = @Destino
+                               SET fechaSalida= @fechaSalida, HoraSalida = @HoraSalida, fechaRegreso = @fechaRegreso,HoraRegreso = @HoraRegreso, Origen=@Origen, Destino = @Destino
                                WHERE idVuelo = @idVuelo";
 
                 // Establecer la conexión
