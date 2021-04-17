@@ -52,6 +52,19 @@ namespace DGDA_AIRLINES
                 Console.WriteLine(ex.Message);
             }
         }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            // Manda el usuario al formulario de Menu
+            Reservation Reservacion = new Reservation();
+            Reservacion.Show();
+            Close();
+        }
+
+        private void btnLogin_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
     }
 
     //Creacion de clase 

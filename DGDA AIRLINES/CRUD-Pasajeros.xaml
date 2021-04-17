@@ -3,9 +3,10 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:DGDA_AIRLINES"
         mc:Ignorable="d"
-        Title="CRUD_Pasajeros" Height="450" Width="800">
+        Title="CRUD_Pasajeros" Height="450" Width="800"  WindowStyle="None" WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
@@ -22,13 +23,23 @@
             <RowDefinition Height="*" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        <Label Content="ID Pasajero" Grid.Row="0" FontSize="15" Margin="10,0,10.4,10" />
-        <Label Content="Nombre" Grid.Row="1" FontSize="15" Margin="10,0,10.4,10" />
-        <Label Content="Apellido" Grid.Row="2" FontSize="15" Margin="10,2,10.4,10" />
-        <Label Content="ID Pais" Grid.Row="3" FontSize="15" Margin="10,2,10.4,10" />
-        <Label Content="Sexo" Grid.Row="4" FontSize="15" Margin="10,0,10.4,10" />
-        <Label Content="Edad" Grid.Row="5" FontSize="15" Margin="10,0,10.4,10" />
-        <Label Content="Telefono" Grid.Row="6" FontSize="15" Margin="10,2,10.4,10" />
+
+
+        <Border CornerRadius="10" Grid.RowSpan="10" Grid.ColumnSpan="6" Cursor="Hand" Margin="-3,0,-1,0" ToolTip="Reservations">
+            <Border.Background>
+                <LinearGradientBrush>
+                    <GradientStop Color="#512DA8" Offset="0.103"/>
+                    <GradientStop Color="#212121" Offset="1.1"/>
+                </LinearGradientBrush>
+            </Border.Background>
+        </Border>
+        <Label Content="ID Passenger" Grid.Row="0"  FontSize="20" FontFamily="Helvetica"   Foreground="White" Margin="10,0,10.4,10" />
+        <Label Content="Name" Grid.Row="1"  FontSize="20" FontFamily="Helvetica"  Foreground="White" Margin="10,0,10.4,10" />
+        <Label Content="Last name" Grid.Row="2"  FontSize="20" FontFamily="Helvetica"  Foreground="White" Margin="10,2,10.4,10" />
+        <Label Content="ID country" Grid.Row="3"  FontSize="20" FontFamily="Helvetica"  Foreground="White" Margin="10,2,10.4,10" />
+        <Label Content="Gender" Grid.Row="4"  FontSize="20" FontFamily="Helvetica"  Foreground="White" Margin="10,0,10.4,10" />
+        <Label Content="Age" Grid.Row="5"  FontSize="20" FontFamily="Helvetica"  Foreground="White" Margin="10,0,10.4,10" />
+        <Label Content="Phone" Grid.Row="6"  FontSize="20" FontFamily="Helvetica"  Foreground="White" Margin="10,2,10.4,10" />
         <TextBox Name="txtNombre" Grid.Row="1" Grid.Column="0" FontSize="15" Margin="10,32,9.4,3" RenderTransformOrigin="0.5,0.5" />
         <TextBox Name="txtApellido" Grid.Row="2" Grid.Column="0" FontSize="15" Margin="10,32,9.4,3" RenderTransformOrigin="0.5,0.5" />
         <TextBox Name="txtIdPais" Grid.Row="3" Grid.Column="0" FontSize="15" Margin="10,32,9.4,3" RenderTransformOrigin="0.5,0.5" />
@@ -37,11 +48,21 @@
         <TextBox Name="txtTelefono" Grid.Row="6" Grid.Column="0" FontSize="15" Margin="10,32,9.4,3" RenderTransformOrigin="0.5,0.5" />
         <DataGrid Name ="DGPasajeros" Grid.Row="0" Grid.ColumnSpan="2"  Grid.Column="2" Margin="10.4,10,10.2,10" Grid.RowSpan="7" />
 
-        <TextBox Name="txtIdPasajero" Grid.Row="0" Grid.Column="0" FontSize="15" Margin="10,34,9.4,0" RenderTransformOrigin="0.493,1.633" />
-        <Button Name="btnVerPasajeros" Content="Ver pasajeros" Grid.Row="0" FontSize="15" Width="Auto" Click="btnVerPasajeros_Click" Grid.ColumnSpan="3" Margin="230,0,230.8,0" />
-        <Button Name="btnAgregarPasajeros" Content="Agregar pasajeros" Grid.Row="1" FontSize="15" Width="Auto" Click="btnAgregarPasajeros_Click" Grid.ColumnSpan="3" Margin="230,0,230.8,0" />
-        <Button Name="btnModificarPasajeros" Content="Modificar pasajeros" Grid.Row="2" FontSize="15" Width="Auto" Click="btnModificarPasajeros_Click" Grid.ColumnSpan="3" Margin="230,0,230.8,0" />
-        <Button Name="btnEliminarPasajeros" Content="Eliminar pasajeros" Grid.Row="3" FontSize="15" Width="Auto" Click="btnEliminarPasajeros_Click" Grid.ColumnSpan="3" Margin="230,0,230.8,0" />
+        <TextBox Name="txtIdPasajero" Grid.Row="0" Grid.Column="0" FontSize="18" Margin="10,34,9.4,0" RenderTransformOrigin="0.493,1.633" />
+        <Button Name="btnVerPasajeros" Content="See passenger" BorderBrush="#FF5722" BorderThickness="2" Background="Transparent" Grid.Row="0" FontSize="16" Width="Auto" Click="btnVerPasajeros_Click" Grid.ColumnSpan="3" Margin="230,0,230.8,0" />
+        <Button Name="btnAgregarPasajeros" Content="Create" BorderBrush="#FF5722" BorderThickness="2" Background="Transparent" Grid.Row="1" FontSize="16" Width="Auto" Click="btnAgregarPasajeros_Click" Grid.ColumnSpan="3" Margin="230,0,230.8,0" />
+        <Button Name="btnModificarPasajeros" Content="Update" BorderBrush="#FF5722" BorderThickness="2" Background="Transparent" Grid.Row="2" FontSize="16" Width="Auto" Click="btnModificarPasajeros_Click" Grid.ColumnSpan="3" Margin="230,0,230.8,0" />
+        <Button Name="btnEliminarPasajeros" Content="Delete" BorderBrush="#FF5722" BorderThickness="2" Background="Transparent" Grid.Row="3" FontSize="16" Width="Auto" Click="btnEliminarPasajeros_Click" Grid.ColumnSpan="3" Margin="230,0,230.8,0" />
+
+
+        <Button Name="btnRegresar"  BorderBrush="#FF5722" BorderThickness="2"  Style="{StaticResource MaterialDesignRaisedButton}"   Content="" Foreground="White" ToolTip="Return"
+                Background="Transparent" Height="Auto"  Margin="968,541,118,8" FontFamily="helvetica" FontSize="20" Click="btnRegresar_Click"  />
+
+        <materialDesign:PackIcon Kind="ArrowCollapseLeft" Width="61" Height="30" Foreground="White" Margin="981,543,0,0" RenderTransformOrigin="2.975,0.321"/>
+        <Button Name="btnSiguiente"  BorderBrush="#FF5722" BorderThickness="2"  Style="{StaticResource MaterialDesignRaisedButton}"   Content="" Foreground="White" ToolTip="Return"
+                Background="Transparent" Height="43"   FontFamily="helvetica" FontSize="20" Margin="32,10,33,0" Grid.Row="4" Grid.Column="1"  VerticalAlignment="Top"  />
+
+        <materialDesign:PackIcon Kind="ArrowCollapseRight" Width="57" Height="30" Foreground="White" Grid.Column="1" Margin="68,10,0,0" Grid.Row="4"/>
 
     </Grid>
 </Window>
