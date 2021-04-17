@@ -344,5 +344,16 @@ namespace DGDA_AIRLINES
             rtMastercard.Visibility = Visibility.Visible;
         }
 
+        private void btnRegresar_Click(object sender, RoutedEventArgs e)
+        {
+            Pasaporte passport = new Pasaporte();
+            passport.Show();
+            Hide();
+        }
+
+        private void btnSiguiente_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

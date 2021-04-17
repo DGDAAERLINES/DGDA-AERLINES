@@ -1,0 +1,76 @@
+﻿<Window x:Class="DGDA_AIRLINES.Pasaporte"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DGDA_AIRLINES"
+        mc:Ignorable="d"
+        Title="Pasaporte" Height="650" Width="1183">
+    <Grid Background="#512DA8">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="161*"/>
+            <RowDefinition Height="160*"/>
+        </Grid.RowDefinitions>
+        <ComboBox x:Name="cmbtype" HorizontalAlignment="Left" Height="25" Margin="474,89,0,0" VerticalAlignment="Top" Width="194" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="Black" Foreground="Black" BorderBrush="#FFF1E4E4"/>
+        <TextBox x:Name="txtpaisemisor" HorizontalAlignment="Left" Height="25" Margin="767,89,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="168" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="{x:Null}" Foreground="#FFFDF5F5"/>
+        <TextBox x:Name="txtpassportno" HorizontalAlignment="Left" Height="25" Margin="1002,89,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="166" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="{x:Null}" Foreground="#FFFDF5F5"/>
+        <TextBox x:Name="txtsurname" HorizontalAlignment="Left" Height="21" Margin="462,162,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="218" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="{x:Null}" Foreground="#FFFDF5F5"/>
+        <TextBox x:Name="txtnationality" HorizontalAlignment="Left" Height="21" Margin="761,161,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="218" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="{x:Null}" Foreground="#FFFDF5F5"/>
+        <TextBox x:Name="txtname" HorizontalAlignment="Left" Height="24" Margin="462,209,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="218" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="{x:Null}" Foreground="#FFFDF5F5"/>
+        <DatePicker x:Name="txtbirth" FontSize="15" Margin="462,249,495,43" Foreground="Black" Background="Transparent" 
+                     DisplayDateStart="2021-01-01" DisplayDateEnd="2021-12-31" Height="30"  >
+            <DatePicker.BlackoutDates>
+                <CalendarDateRange Start="2021-12-01" End="2021-12-04" />
+                <CalendarDateRange Start="2021-04-01" End="2021-04-03" />
+            </DatePicker.BlackoutDates>
+        </DatePicker>
+        <TextBox x:Name="txtplace" HorizontalAlignment="Left" Height="24" Margin="761,300,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="218" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="{x:Null}" Foreground="#FFFDF5F5" Grid.RowSpan="2"/>
+        <TextBox x:Name="txtissue" HorizontalAlignment="Left" Height="24" Margin="462,301,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="218" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="{x:Null}" Foreground="#FFFDF5F5" Grid.RowSpan="2"/>
+        <TextBox x:Name="txtexpiry" HorizontalAlignment="Left" Height="24" Margin="462,25,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="218" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="{x:Null}" Foreground="#FFFDF5F5" Grid.Row="1"/>
+        <TextBox x:Name="txtauthority" HorizontalAlignment="Left" Height="24" Margin="761,24,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="218" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="{x:Null}" Foreground="#FFFDF5F5" Grid.Row="1"/>
+        <TextBox x:Name="txtsexo" HorizontalAlignment="Left" Height="24" Margin="761,208,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="218" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="{x:Null}" Foreground="#FFFDF5F5" />
+        <TextBox x:Name="txtid" HorizontalAlignment="Left" Height="24" Margin="761,254,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="218" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="{x:Null}" Foreground="#FFFDF5F5" />
+        <Button x:Name="btninsert" Content="Insertar" HorizontalAlignment="Right" Height="56" Margin="0,119,10,0" VerticalAlignment="Top" Width="174" Foreground="#FFFDEFEF" BorderBrush="{x:Null}" FontSize="22" FontFamily="MV Boli" Click="btninsert_Click" RenderTransformOrigin="0.5,0.5" Background="{x:Null}"/>
+        <Button x:Name="btnupdate" Content="update" HorizontalAlignment="Right" Height="60" Margin="0,175,7,0" VerticalAlignment="Top" Width="173" Background="{x:Null}" Foreground="#FFFDEFEF" BorderBrush="{x:Null}" FontSize="22" FontFamily="MV Boli" Click="btnupdate_Click"/>
+        <Button x:Name="btndelete" Content="Delete" HorizontalAlignment="Right" Height="62" Margin="0,235,8,0" VerticalAlignment="Top" Width="172" Background="{x:Null}" Foreground="#FFFDEFEF" BorderBrush="{x:Null}" FontSize="22" FontFamily="MV Boli" Click="btndelete_Click"/>
+        <Button x:Name="btnback" Content="Back" Height="61" Margin="0,302,0,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="173" Foreground="#FFFDEFEF" BorderBrush="{x:Null}" FontSize="22" FontFamily="MV Boli" ClipToBounds="True" Click="btnback_Click" Grid.RowSpan="2">
+            <Button.Background>
+                <ImageBrush/>
+            </Button.Background>
+        </Button>
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="56" VerticalAlignment="Top" Width="1175" Background="#512DA8" Cursor="Hand"/>
+        <DataGrid x:Name="lbpassport" HorizontalAlignment="Left" Height="203" Margin="8,107,0,0" VerticalAlignment="Top" Width="1157" IsReadOnly="True" SelectionMode="Single" Grid.Row="1" SelectionChanged="lbpassport_SelectionChanged"/>
+        <Label Content="País Emisor/Issuing State" HorizontalAlignment="Left" Margin="785,60,0,0" VerticalAlignment="Top" Width="150" Foreground="White"/>
+        <Label Content="Pasaporte No. / Passport No." HorizontalAlignment="Left" Margin="990,58,0,0" VerticalAlignment="Top" Width="164" Foreground="White"/>
+        <Label Content="Type" HorizontalAlignment="Left" Margin="528,60,0,0" VerticalAlignment="Top" Width="120" Foreground="White"/>
+        <Label Content="Apellidos / Surname" HorizontalAlignment="Left" Margin="508,135,0,0" VerticalAlignment="Top" Width="120" Foreground="White"/>
+        <Label Content="Fecha de Vencimiento / Date of Expiry" HorizontalAlignment="Left" Margin="460,317,0,0" VerticalAlignment="Top" Width="220" Foreground="White" Grid.RowSpan="2"/>
+        <Label Content="Fecha de nacimiento / Date of Birth" HorizontalAlignment="Left" Margin="476,229,0,0" VerticalAlignment="Top" Width="204" Foreground="White"/>
+        <Label Content="Nombres / Given name" HorizontalAlignment="Left" Margin="508,179,0,0" VerticalAlignment="Top" Width="140" Foreground="White"/>
+        <Label Content="Fecha de Emisión / Date of Issue" HorizontalAlignment="Left" Margin="476,279,0,0" VerticalAlignment="Top" Width="189" Foreground="White"/>
+        <Label Content="Nacionalidad / Nationality" HorizontalAlignment="Left" Margin="785,134,0,0" VerticalAlignment="Top" Width="164" Foreground="White"/>
+        <Label Content="Sexo / Sex" HorizontalAlignment="Left" Margin="817,178,0,0" VerticalAlignment="Top" Width="120" Foreground="White" RenderTransformOrigin="0.5,0.5">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-2.076"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
+        <Label Content="Cédula de Identidad / I.D No." HorizontalAlignment="Left" Margin="815,228,0,0" VerticalAlignment="Top" Width="120" Foreground="White"/>
+        <Label Content="Lugar de Nacimiento / Place of Birth " HorizontalAlignment="Left" Margin="815,278,0,0" VerticalAlignment="Top" Width="120" Foreground="White"/>
+        <Label Content="Autoridad Emisora / Authority of Issue" HorizontalAlignment="Left" Margin="815,316,0,0" VerticalAlignment="Top" Width="120" Foreground="White" Grid.RowSpan="2"/>
+        <Button x:Name="btnOK" Content="OK" HorizontalAlignment="Left" Height="50" Margin="991,177,0,0" VerticalAlignment="Top" Width="163" Click="btnOK_Click" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FFFFF2F2" FontSize="14" FontFamily="Segoe UI Semibold" FontWeight="Bold" FontStyle="Italic"/>
+        <Button x:Name="btncancel" Content="Cancel" HorizontalAlignment="Left" Height="50" Margin="991,242,0,0" VerticalAlignment="Top" Width="177" Click="btncancel_Click" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FFFFF2F2" FontSize="14" FontFamily="Segoe UI Semibold" FontWeight="Bold" FontStyle="Italic"/>
+        <TextBox x:Name="txtID" HorizontalAlignment="Left" Height="23" Margin="154,284,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="49" Visibility="Hidden" IsReadOnly="True"/>
+        <Label Content="PASSPORT ISSUE" HorizontalAlignment="Left" Height="46" Margin="416,0,0,0" VerticalAlignment="Top" Width="328" FontSize="36" FontFamily="Mongolian Baiti" FontWeight="Bold" FontStyle="Italic" Foreground="#FFFFF3F3"/>
+        <Button x:Name="btnPrueba" Content="Compra" HorizontalAlignment="Left" Margin="196,34.6,0,0" VerticalAlignment="Top" Width="143" Click="btnPrueba_Click" Height="45" Grid.Row="1"/>
+        <Image x:Name="pictureBox1" HorizontalAlignment="Left" Height="70" Margin="10,9.6,0,0" Grid.Row="1" VerticalAlignment="Top" Width="100"/>
+        <TextBox x:Name="txtEmail" HorizontalAlignment="Left" Height="24" Margin="158,119,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="218" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="{x:Null}" Foreground="#FFFDF5F5"/>
+        <Label Content="             Email / correo electrónico" HorizontalAlignment="Left" Margin="154,88,0,0" VerticalAlignment="Top" Width="220" Foreground="White"/>
+
+
+    </Grid>
+</Window>

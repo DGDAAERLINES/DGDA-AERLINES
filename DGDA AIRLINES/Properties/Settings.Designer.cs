@@ -26,11 +26,22 @@ namespace DGDA_AIRLINES.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=localhost\\MSSQLSERVER01;Initial Catalog=DGDAaerlines;Integrated Secur" +
-            "ity=True")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source = (local)\\SQLEXPRESS; Initial Catalog = DGDAaerlines; Integrated Secu" +
+            "rity = true;")]
         public string DGDA_AIRLINES {
             get {
                 return ((string)(this["DGDA_AIRLINES"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-BID0KJC\\SQLEXPRESS;Initial Catalog=DGDAaerlines;Integrated Se" +
+            "curity=True")]
+        public string DGDAaerlinesConnectionString {
+            get {
+                return ((string)(this["DGDAaerlinesConnectionString"]));
             }
         }
     }

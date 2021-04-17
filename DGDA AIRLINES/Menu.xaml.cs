@@ -38,6 +38,8 @@ namespace DGDA_AIRLINES
                     // Mostrar formulario de Emision de pasaporte
                     // iniciarSesion = new MainWindow();
                     //iniciarSesion.Show();
+                    Pasaporte passport = new Pasaporte();
+                    passport.Show();
                     Close();
                 }
                 else

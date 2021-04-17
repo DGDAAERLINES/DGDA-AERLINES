@@ -37,6 +37,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AForge, Version=2.2.5.0, Culture=neutral, PublicKeyToken=c1db6ff4eaa06aeb, processorArchitecture=MSIL">
+      <HintPath>..\packages\AForge.2.2.5\lib\AForge.dll</HintPath>
+    </Reference>
     <Reference Include="Aspose.PDF, Version=21.4.0.0, Culture=neutral, PublicKeyToken=f0262d67fe233d63, processorArchitecture=MSIL">
       <HintPath>..\packages\Aspose.PDF.21.4.0\lib\net4.0\Aspose.PDF.dll</HintPath>
     </Reference>
@@ -104,12 +107,21 @@
     <Compile Include="Bank_LoadingScreen.xaml.cs">
       <DependentUpon>Bank_LoadingScreen.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DataSetPasaporte.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetPasaporte.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Flight_LoadingScreen.xaml.cs">
       <DependentUpon>Flight_LoadingScreen.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pago.xaml.cs">
       <DependentUpon>Pago.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pasaporte.xaml.cs">
+      <DependentUpon>Pasaporte.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Passport.cs" />
     <Compile Include="Passport_LoadingScreen.xaml.cs">
       <DependentUpon>Passport_LoadingScreen.xaml</DependentUpon>
     </Compile>
@@ -164,6 +176,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pasaporte.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Passport_LoadingScreen.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -203,7 +219,18 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="ReporteVuelo.rdlc" />
+    <EmbeddedResource Include="ReportPasaporte.rdlc" />
+    <None Include="DataSetPasaporte.xsc">
+      <DependentUpon>DataSetPasaporte.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetPasaporte.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetPasaporte.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSetPasaporte.xss">
+      <DependentUpon>DataSetPasaporte.xsd</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
