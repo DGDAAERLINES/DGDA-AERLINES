@@ -22,14 +22,17 @@ namespace DGDA_AIRLINES
         // Variables miembro
         private Price precio = new Price();
         public int idVuelo;
-        private int keyDestino;
+        private string Destino;
         private double precioEconomy;
         private double precioFirst;
         private double precioEconomyDollars;
         private double precioFirstDollars;
-        public Prices()
+        public Prices(int ID)
         {
             InitializeComponent();
+
+            // Obtener el valor del vuelo
+            this.idVuelo = ID;
 
             try
             {
@@ -64,11 +67,28 @@ namespace DGDA_AIRLINES
         private void CalcularPrecios()
         {
             // Obtener el destino para calcular el precio
-            keyDestino = precio.ObtenerKeyDestino(idVuelo);
+            Destino = precio.ObtenerDestino(idVuelo);
 
             // Calcular los precios
+            // Honduras
+            if (Destino == "Honduras, TGS:Aeropuerto Internacional Toncontín" ||
+                Destino == "Honduras, SPS:Aeropuerto Internacional Ramón Villeda Morales" ||
+                Destino == "Honduras,Ceiba:Aeropuerto Internacional Goloson")
+            {
+                precioFirst = 9000;
+                precioFirstDollars = Math.Round(precioFirst / 24.02);
+                precioEconomy = 5000;
+                precioEconomyDollars = Math.Round(precioEconomy / 24.02);
+
+                // Mostrar los valores en el formulario
+                txtPrice.Text = precioEconomy.ToString();
+                txtPriceDollars.Text = precioEconomyDollars.ToString();
+                txtPriceF.Text = precioFirst.ToString();
+                txtPriceDollarsF.Text = precioFirstDollars.ToString();
+            }
             // Estados Unidos
-            if (keyDestino == 4 || keyDestino == 5)
+            else if (Destino == "Estados Unidos, Houston:Aeropuerto Intercontinental George Bush" ||
+                     Destino == "Estados Unidos, New Jersey:Aeropuerto Internacional Libertad de Newark")
             {
                 precioFirst = 24000;
                 precioFirstDollars = Math.Round(precioFirst / 24.02);
@@ -82,7 +102,8 @@ namespace DGDA_AIRLINES
                 txtPriceDollarsF.Text = precioFirstDollars.ToString();
             }
             // Colombia
-            else if (keyDestino == 6 || keyDestino == 7)
+            else if (Destino == "Colombia, Medellin:Aeropuerto Olaya Herrera" ||
+                     Destino == "Colombia, Cartajena: Aeropuerto Internacional Rafael Núñez")
             {
                 precioFirst = 21500;
                 precioFirstDollars = Math.Round(precioFirst / 24.02);
@@ -96,7 +117,8 @@ namespace DGDA_AIRLINES
                 txtPriceDollarsF.Text = precioFirstDollars.ToString();
             }
             // México
-            else if (keyDestino == 8 || keyDestino == 9)
+            else if (Destino == "Mexico,Veracruz:Aeropuerto Internacional de Veracruz" ||
+                     Destino == "Mexico,Tijuana:Aeropuerto Internacional de Tijuana")
             {
                 precioFirst = 32000;
                 precioFirstDollars = Math.Round(precioFirst / 24.02);
@@ -110,7 +132,8 @@ namespace DGDA_AIRLINES
                 txtPriceDollarsF.Text = precioFirstDollars.ToString();
             }
             // Panamá
-            else if (keyDestino == 10 || keyDestino == 11)
+            else if (Destino == "Panama, Tocumen:Aeropuerto Internacional de Tocumen" ||
+                     Destino == "Panama, Arraijan:Aeropuerto Internacional Panamá Pacífico")
             {
                 precioFirst = 25000;
                 precioFirstDollars = Math.Round(precioFirst / 24.02);
@@ -124,7 +147,8 @@ namespace DGDA_AIRLINES
                 txtPriceDollarsF.Text = precioFirstDollars.ToString();
             }
             // Corea del Sur
-            else if (keyDestino == 12 || keyDestino == 13)
+            else if (Destino == "Corea del sur,Incheon:Aeropuerto Internacional de Incheon" ||
+                     Destino == "Corea del sur,Seul:Aeropuerto Internacional de Gimpo")
             {
                 precioFirst = 88000;
                 precioFirstDollars = Math.Round(precioFirst / 24.02);
@@ -138,7 +162,8 @@ namespace DGDA_AIRLINES
                 txtPriceDollarsF.Text = precioFirstDollars.ToString();
             }
             // Bolivia
-            else if (keyDestino == 14 || keyDestino == 15)
+            else if (Destino == "Bolivia,Santa cruz:Aeropuerto Internacional Viru Viru" ||
+                     Destino == "Bolivia,Cochabamba:Aeropuerto Internacional Jorge Wilsterman")
             {
                 precioFirst = 45000;
                 precioFirstDollars = Math.Round(precioFirst / 24.02);
@@ -152,7 +177,8 @@ namespace DGDA_AIRLINES
                 txtPriceDollarsF.Text = precioFirstDollars.ToString();
             }
             // El Salvador
-            else if (keyDestino == 16 || keyDestino == 17)
+            else if (Destino == "El salvador,San miguel:Aeropuerto Regional de San Miguel" ||
+                     Destino == "El salvador:El Salvador Aeropuerto internacional")
             {
                 precioFirst = 15000;
                 precioFirstDollars = Math.Round(precioFirst / 24.02);
@@ -166,7 +192,8 @@ namespace DGDA_AIRLINES
                 txtPriceDollarsF.Text = precioFirstDollars.ToString();
             }
             // Canadá
-            else if (keyDestino == 18 || keyDestino == 19)
+            else if (Destino == "Canada,Toronto:Aeropuerto Toronto City Centre" ||
+                     Destino == "Canada,Montreal:Aeropuerto Internacional Pierre Elliott Trudeau")
             {
                 precioFirst = 39000;
                 precioFirstDollars = Math.Round(precioFirst / 24.02);
@@ -180,7 +207,8 @@ namespace DGDA_AIRLINES
                 txtPriceDollarsF.Text = precioFirstDollars.ToString();
             }
             // Argentina
-            else if (keyDestino == 20 || keyDestino == 21)
+            else if (Destino == "Argentina, Buenos aires:Aeropuerto Internacional Ezeiza" ||
+                     Destino == "Argentina,Mendoza:Aeropuerto Internacional El Plumerillo")
             {
                 precioFirst = 45000;
                 precioFirstDollars = Math.Round(precioFirst / 24.02);
@@ -194,7 +222,8 @@ namespace DGDA_AIRLINES
                 txtPriceDollarsF.Text = precioFirstDollars.ToString();
             }
             // España
-            else if (keyDestino == 22 || keyDestino == 23)
+            else if (Destino == "Espana,Madrid:Aeropuerto de Madrid-Barajas Adolfo Suárez" ||
+                     Destino == "Espana,Barcelona:Aeropuerto Josep Tarradellas Barcelona-El Prat")
             {
                 precioFirst = 40000;
                 precioFirstDollars = Math.Round(precioFirst / 24.02);
