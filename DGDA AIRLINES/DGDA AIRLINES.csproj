@@ -79,18 +79,16 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-<<<<<<< HEAD
+    <Compile Include="Reservaciones.cs" />
+    <Compile Include="Reservation.xaml.cs">
+      <DependentUpon>Reservation.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Menu.xaml.cs">
       <DependentUpon>Menu.xaml</DependentUpon>
     </Compile>
     <Compile Include="Price.cs" />
     <Compile Include="Prices.xaml.cs">
       <DependentUpon>Prices.xaml</DependentUpon>
-=======
-    <Compile Include="Reservaciones.cs" />
-    <Compile Include="Reservation.xaml.cs">
-      <DependentUpon>Reservation.xaml</DependentUpon>
->>>>>>> feature-reservation
     </Compile>
     <Compile Include="Start Screen.xaml.cs">
       <DependentUpon>Start Screen.xaml</DependentUpon>
@@ -112,15 +110,15 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-<<<<<<< HEAD
     <Page Include="Menu.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Prices.xaml">
-=======
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Reservation.xaml">
->>>>>>> feature-reservation
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
