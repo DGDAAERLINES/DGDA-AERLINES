@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DGDA_AIRLINES"
-        xmlns:Pdf="clr-namespace:Aspose.Pdf;assembly=Aspose.PDF" x:Class="DGDA AIRLINES.Pago"
+        xmlns:Pdf="clr-namespace:Aspose.Pdf;assembly=Aspose.PDF" x:Class="DGDA_AIRLINES.Pago"
         mc:Ignorable="d"
         Title="Pago" Height="650" Width="1183">
     <Grid>
@@ -57,7 +57,11 @@
             </Button.Background>
         </Button>
         <Button x:Name="btnRealizarTransaccion" Content="Realizar transacción" HorizontalAlignment="Left" Margin="837,480,0,0" VerticalAlignment="Top" Width="270" Height="50" FontSize="28" Click="btnRealizarTransaccion_Click"/>
-        <TextBox x:Name="txtCorreoEmpresa" HorizontalAlignment="Left" Height="23" Margin="713,399,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" Visibility="Hidden"/>
+        <TextBox x:Name="txtCorreoEmpresa" HorizontalAlignment="Left" Height="23" Margin="713,399,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" Visibility="Hidden">
+            <TextBox.Background>
+                <ImageBrush/>
+            </TextBox.Background>
+        </TextBox>
         <Button Content="" HorizontalAlignment="Left" Margin="973,58,0,0" VerticalAlignment="Top" Width="134" Height="120" Padding="6,1,1,1" BorderThickness="0" Click="Button_Click">
             <Button.Background>
                 <ImageBrush ImageSource="mastercardLogo.png" Stretch="Uniform"/>
