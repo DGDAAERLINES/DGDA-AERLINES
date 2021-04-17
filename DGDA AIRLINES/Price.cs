@@ -82,8 +82,7 @@ namespace DGDA_AIRLINES
             try
             {
                 // Query de selección
-                string query = @"SELECT P.nombre FROM Aerlines.Vuelo V INNER JOIN Aerlines.Pais P 
-                                 ON P.id = V.destino WHERE V.idVuelo = @idVuelo";
+                string query = @"SELECT V.destino FROM Aerlines.Vuelo V WHERE V.idVuelo = @idVuelo";
 
                 // Establecer la conexión
                 sqlConnection.Open();
@@ -99,7 +98,7 @@ namespace DGDA_AIRLINES
                     while (rdr.Read())
                     {
                         // Obtener el destino desde la base de datos
-                        destino = rdr["nombre"].ToString();
+                        destino = rdr["destino"].ToString();
                     }
                 }
 
@@ -169,8 +168,7 @@ namespace DGDA_AIRLINES
             try
             {
                 // Query de selección
-                string query = @"SELECT A.nombre FROM Aerlines.Vuelo V INNER JOIN 
-                                 Aerlines.AeropuertoHN A ON A.idAeropuertoHN = V.origen WHERE V.idVuelo = @idVuelo";
+                string query = @"SELECT V.origen FROM Aerlines.Vuelo V WHERE V.idVuelo = @idVuelo";
 
                 // Establecer la conexión
                 sqlConnection.Open();
@@ -186,7 +184,7 @@ namespace DGDA_AIRLINES
                     while (rdr.Read())
                     {
                         // Obtener el origen desde la base de datos
-                        origen = rdr["nombre"].ToString();
+                        origen = rdr["origen"].ToString();
                     }
                 }
 
