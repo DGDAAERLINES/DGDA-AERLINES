@@ -98,9 +98,9 @@ namespace DGDA_AIRLINES
             // México
             else if (keyDestino == 8 || keyDestino == 9)
             {
-                precioFirst = 15000;
+                precioFirst = 32000;
                 precioFirstDollars = Math.Round(precioFirst / 24.02);
-                precioEconomy = 9500;
+                precioEconomy = 21500;
                 precioEconomyDollars = Math.Round(precioEconomy / 24.02);
 
                 // Mostrar los valores en el formulario
@@ -111,34 +111,6 @@ namespace DGDA_AIRLINES
             }
             // Panamá
             else if (keyDestino == 10 || keyDestino == 11)
-            {
-                precioFirst = 88000;
-                precioFirstDollars = Math.Round(precioFirst / 24.02);
-                precioEconomy = 43000;
-                precioEconomyDollars = Math.Round(precioEconomy / 24.02);
-
-                // Mostrar los valores en el formulario
-                txtPrice.Text = precioEconomy.ToString();
-                txtPriceDollars.Text = precioEconomyDollars.ToString();
-                txtPriceF.Text = precioFirst.ToString();
-                txtPriceDollarsF.Text = precioFirstDollars.ToString();
-            }
-            // Corea del Sur
-            else if (keyDestino == 12 || keyDestino == 13)
-            {
-                precioFirst = 40000;
-                precioFirstDollars = Math.Round(precioFirst / 24.02);
-                precioEconomy = 20500;
-                precioEconomyDollars = Math.Round(precioEconomy / 24.02);
-
-                // Mostrar los valores en el formulario
-                txtPrice.Text = precioEconomy.ToString();
-                txtPriceDollars.Text = precioEconomyDollars.ToString();
-                txtPriceF.Text = precioFirst.ToString();
-                txtPriceDollarsF.Text = precioFirstDollars.ToString();
-            }
-            // Bolivia
-            else if (keyDestino == 14 || keyDestino == 15)
             {
                 precioFirst = 25000;
                 precioFirstDollars = Math.Round(precioFirst / 24.02);
@@ -151,12 +123,40 @@ namespace DGDA_AIRLINES
                 txtPriceF.Text = precioFirst.ToString();
                 txtPriceDollarsF.Text = precioFirstDollars.ToString();
             }
+            // Corea del Sur
+            else if (keyDestino == 12 || keyDestino == 13)
+            {
+                precioFirst = 88000;
+                precioFirstDollars = Math.Round(precioFirst / 24.02);
+                precioEconomy = 43000;
+                precioEconomyDollars = Math.Round(precioEconomy / 24.02);
+
+                // Mostrar los valores en el formulario
+                txtPrice.Text = precioEconomy.ToString();
+                txtPriceDollars.Text = precioEconomyDollars.ToString();
+                txtPriceF.Text = precioFirst.ToString();
+                txtPriceDollarsF.Text = precioFirstDollars.ToString();
+            }
+            // Bolivia
+            else if (keyDestino == 14 || keyDestino == 15)
+            {
+                precioFirst = 45000;
+                precioFirstDollars = Math.Round(precioFirst / 24.02);
+                precioEconomy = 27500;
+                precioEconomyDollars = Math.Round(precioEconomy / 24.02);
+
+                // Mostrar los valores en el formulario
+                txtPrice.Text = precioEconomy.ToString();
+                txtPriceDollars.Text = precioEconomyDollars.ToString();
+                txtPriceF.Text = precioFirst.ToString();
+                txtPriceDollarsF.Text = precioFirstDollars.ToString();
+            }
             // El Salvador
             else if (keyDestino == 16 || keyDestino == 17)
             {
-                precioFirst = 39000;
+                precioFirst = 15000;
                 precioFirstDollars = Math.Round(precioFirst / 24.02);
-                precioEconomy = 28000;
+                precioEconomy = 9500;
                 precioEconomyDollars = Math.Round(precioEconomy / 24.02);
 
                 // Mostrar los valores en el formulario
@@ -168,9 +168,9 @@ namespace DGDA_AIRLINES
             // Canadá
             else if (keyDestino == 18 || keyDestino == 19)
             {
-                precioFirst = 32000;
+                precioFirst = 39000;
                 precioFirstDollars = Math.Round(precioFirst / 24.02);
-                precioEconomy = 21500;
+                precioEconomy = 28000;
                 precioEconomyDollars = Math.Round(precioEconomy / 24.02);
 
                 // Mostrar los valores en el formulario
@@ -196,9 +196,9 @@ namespace DGDA_AIRLINES
             // España
             else if (keyDestino == 22 || keyDestino == 23)
             {
-                precioFirst = 45000;
+                precioFirst = 40000;
                 precioFirstDollars = Math.Round(precioFirst / 24.02);
-                precioEconomy = 27500;
+                precioEconomy = 20500;
                 precioEconomyDollars = Math.Round(precioEconomy / 24.02);
 
                 // Mostrar los valores en el formulario
