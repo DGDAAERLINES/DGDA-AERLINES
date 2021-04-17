@@ -244,7 +244,6 @@ namespace DGDA_AIRLINES
             try
             {
                 // Obtiene los valores del precio
-                precio.idVuelo = idVuelo;
                 precio.idClase = 2;
                 precio.Precio = Convert.ToDouble(txtPrice.Text);
 
@@ -267,9 +266,8 @@ namespace DGDA_AIRLINES
             try
             {
                 // Obtiene los valores del precio
-                precio.idVuelo = idVuelo;
                 precio.idClase = 1;
-                precio.Precio = Convert.ToDouble(txtPrice.Text);
+                precio.Precio = Convert.ToDouble(txtPriceF.Text);
 
                 // Insertar los datos del precio
                 precio.InsertarPrecio(precio);

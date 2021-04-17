@@ -43,8 +43,9 @@ namespace DGDA_AIRLINES
             try
             {
                 // Query de inserción
-                string query = @"INSERT INTO Aerlines.DetallePrecio (idClase, idVuelo, Precio)
-                                 VALUES (@idClase, @idVuelo, @precio)";
+                string query = @"INSERT INTO Aerlines.DetallePrecio (idClase, Precio)
+                                 VALUES (@idClase, @precio)";
+
 
                 // Establecer la conexión
                 sqlConnection.Open();
@@ -54,7 +55,6 @@ namespace DGDA_AIRLINES
 
                 // Establecer los valores de los parámetros
                 sqlCommand.Parameters.AddWithValue("@idClase", precio.idClase);
-                sqlCommand.Parameters.AddWithValue("@idVuelo", precio.idVuelo);
                 sqlCommand.Parameters.AddWithValue("@precio", precio.Precio);
 
 
