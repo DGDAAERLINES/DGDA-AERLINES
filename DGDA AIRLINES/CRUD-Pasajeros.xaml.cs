@@ -14,6 +14,7 @@ using System.Windows.Shapes;
 using System.Data;
 using System.Data.SqlClient;
 using System.Configuration;
+using CRUD_Pasajeros;
 
 namespace DGDA_AIRLINES
 {

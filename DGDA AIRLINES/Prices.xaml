@@ -25,16 +25,16 @@
         <GroupBox x:Name="groupBox_Copy" Header="First Class" BorderBrush="#FF5722" BorderThickness="2" HorizontalAlignment="Left" Height="384" Margin="600,150,0,0" VerticalAlignment="Top" Width="506" FontSize="16">
             <Button x:Name="btnPurchaseF" Content="Purchase" BorderBrush="#FF5722" Background="Transparent" BorderThickness="2" HorizontalAlignment="Center" Margin="0,280,0,0" VerticalAlignment="Top" Width="112" FontSize="16" Height="36" Click="btnPurchaseF_Click"/>
         </GroupBox>
-        <TextBox x:Name="txtPrice" HorizontalAlignment="Left" Height="108" Margin="168,201,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="338" FontSize="50" BorderBrush="#FF5722" BorderThickness="2" IsReadOnly="True" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <TextBox x:Name="txtPrice" HorizontalAlignment="Left" Foreground="White" Height="108" Margin="168,201,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="338" FontSize="50" BorderBrush="#FF5722" BorderThickness="2" IsReadOnly="True" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
 
-        <TextBox x:Name="txtPriceDollars" HorizontalAlignment="Left" BorderBrush="#FF5722" BorderThickness="2" Height="108" Margin="168,338,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="338" FontSize="50" IsReadOnly="True" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
-        <TextBox x:Name="txtPriceF" HorizontalAlignment="Left" Height="108" BorderBrush="#FF5722" BorderThickness="2" Margin="724,201,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="338" FontSize="50" IsReadOnly="True" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
-        <TextBox x:Name="txtPriceDollarsF" HorizontalAlignment="Left" BorderBrush="#FF5722" BorderThickness="2" Height="108" Margin="724,338,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="338" FontSize="50" IsReadOnly="True" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <TextBox x:Name="txtPriceDollars" HorizontalAlignment="Left" Foreground="White" BorderBrush="#FF5722" BorderThickness="2" Height="108" Margin="168,338,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="338" FontSize="50" IsReadOnly="True" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <TextBox x:Name="txtPriceF" HorizontalAlignment="Left" Height="108" Foreground="White" BorderBrush="#FF5722" BorderThickness="2" Margin="724,201,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="338" FontSize="50" IsReadOnly="True" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <TextBox x:Name="txtPriceDollarsF" HorizontalAlignment="Left" Foreground="White" BorderBrush="#FF5722" BorderThickness="2" Height="108" Margin="724,338,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="338" FontSize="50" IsReadOnly="True" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
         <StackPanel Margin="0,0,-1,526"  >
             <StackPanel Margin="5" HorizontalAlignment="Center"/>
             <Button Height="32" Style="{StaticResource MaterialDesignRaisedButton}" 
                 materialDesign:ButtonAssist.CornerRadius="10" BorderThickness="2" BorderBrush=" #FF5722"
-                Background="Transparent" Foreground="White" ToolTip="Exit" FontSize="18" x:Name="btnexit" Click="btnexit_Click" RenderTransformOrigin="0.5,0.5" Margin="1072,0,11,0" >
+                Background="Transparent" Foreground="White" ToolTip="Exit" FontSize="18" x:Name="btnexit"  RenderTransformOrigin="0.5,0.5" Margin="1072,0,11,0" Click="btnexit_Click" >
                 <Button.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform ScaleX="-1"/>
@@ -64,10 +64,14 @@
         <materialDesign:PackIcon Kind="ArrowCollapseLeft" Width="61" Height="30" Foreground="White" Margin="981,543,0,0" RenderTransformOrigin="2.975,0.321"/>
         <Button Name="btnSiguiente"  BorderBrush="#FF5722" BorderThickness="2"  Style="{StaticResource MaterialDesignRaisedButton}"   Content="" Foreground="White" ToolTip="Return"
                 Background="Transparent" Height="Auto"  Margin="1065,542,21,7" FontFamily="helvetica" FontSize="20" RenderTransformOrigin="0.5,0.5" Click="btnSiguiente_Click"  >
-            
+
         </Button>
 
         <materialDesign:PackIcon Kind="ArrowCollapseRight" Width="57" Height="30" Foreground="White" Margin="1084,543,0,0" RenderTransformOrigin="2.975,0.321"/>
+        <materialDesign:PackIcon Kind=" CurrencyUSD" Width="57" Height="72" Foreground="White" Margin="106,357,0,0" RenderTransformOrigin="2.975,0.321"/>
+        <materialDesign:PackIcon Kind=" CurrencyUSD" Width="57" Height="72" Foreground="White" Margin="667,357,0,0" RenderTransformOrigin="2.975,0.321"/>
+        <materialDesign:PackIcon Kind=" AlphaL" Width="57" Height="72" Foreground="White" Margin="106,218,0,0" RenderTransformOrigin="2.975,0.321"/>
+        <materialDesign:PackIcon Kind=" AlphaL" Width="57" Height="72" Foreground="White" Margin="662,218,0,0" RenderTransformOrigin="2.975,0.321"/>
 
     </Grid>
 </Window>

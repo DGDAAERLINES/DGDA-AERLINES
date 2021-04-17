@@ -40,27 +40,27 @@
         <Label Content="Gender" Grid.Row="4"  FontSize="20" FontFamily="Helvetica"  Foreground="White" Margin="10,0,10.4,10" />
         <Label Content="Age" Grid.Row="5"  FontSize="20" FontFamily="Helvetica"  Foreground="White" Margin="10,0,10.4,10" />
         <Label Content="Phone" Grid.Row="6"  FontSize="20" FontFamily="Helvetica"  Foreground="White" Margin="10,2,10.4,10" />
-        <TextBox Name="txtNombre" Grid.Row="1" Grid.Column="0" FontSize="15" Margin="10,32,9.4,3" RenderTransformOrigin="0.5,0.5" />
-        <TextBox Name="txtApellido" Grid.Row="2" Grid.Column="0" FontSize="15" Margin="10,32,9.4,3" RenderTransformOrigin="0.5,0.5" />
-        <TextBox Name="txtIdPais" Grid.Row="3" Grid.Column="0" FontSize="15" Margin="10,32,9.4,3" RenderTransformOrigin="0.5,0.5" />
-        <TextBox Name="txtSexo" Grid.Row="4" Grid.Column="0" FontSize="15" Margin="10,32,9.4,3" RenderTransformOrigin="0.5,0.5" />
-        <TextBox Name="txtEdad" Grid.Row="5" Grid.Column="0" FontSize="15" Margin="10,32,9.4,3" RenderTransformOrigin="0.5,0.5" />
-        <TextBox Name="txtTelefono" Grid.Row="6" Grid.Column="0" FontSize="15" Margin="10,32,9.4,3" RenderTransformOrigin="0.5,0.5" />
+        <TextBox Name="txtNombre" Grid.Row="1" Grid.Column="0" FontSize="15" Foreground="White"  Margin="10,32,9.4,3" RenderTransformOrigin="0.5,0.5" />
+        <TextBox Name="txtApellido" Grid.Row="2" Grid.Column="0" FontSize="15" Foreground="White"  Margin="10,32,9.4,3" RenderTransformOrigin="0.5,0.5" />
+        <TextBox Name="txtIdPais" Grid.Row="3" Grid.Column="0" FontSize="15" Foreground="White"  Margin="10,32,9.4,3" RenderTransformOrigin="0.5,0.5" />
+        <TextBox Name="txtSexo" Grid.Row="4" Grid.Column="0" FontSize="15" Foreground="White"  Margin="10,32,9.4,3" RenderTransformOrigin="0.5,0.5" />
+        <TextBox Name="txtEdad" Grid.Row="5" Grid.Column="0" Foreground="White" FontSize="15" Margin="10,32,9.4,3" RenderTransformOrigin="0.5,0.5" />
+        <TextBox Name="txtTelefono" Grid.Row="6" Grid.Column="0" Foreground="White"  FontSize="15" Margin="10,32,9.4,3" RenderTransformOrigin="0.5,0.5" />
         <DataGrid Name ="DGPasajeros" Grid.Row="0" Grid.ColumnSpan="2"  Grid.Column="2" Margin="10.4,10,10.2,10" Grid.RowSpan="7" />
 
-        <TextBox Name="txtIdPasajero" Grid.Row="0" Grid.Column="0" FontSize="18" Margin="10,34,9.4,0" RenderTransformOrigin="0.493,1.633" />
+        <TextBox Name="txtIdPasajero" Grid.Row="0" Grid.Column="0" FontSize="18" Foreground="White"  Margin="10,34,9.4,0" RenderTransformOrigin="0.493,1.633" />
         <Button Name="btnVerPasajeros" Content="See passenger" BorderBrush="#FF5722" BorderThickness="2" Background="Transparent" Grid.Row="0" FontSize="16" Width="Auto" Click="btnVerPasajeros_Click" Grid.ColumnSpan="3" Margin="230,0,230.8,0" />
-        <Button Name="btnAgregarPasajeros" Content="Create" BorderBrush="#FF5722" BorderThickness="2" Background="Transparent" Grid.Row="1" FontSize="16" Width="Auto" Click="btnAgregarPasajeros_Click" Grid.ColumnSpan="3" Margin="230,0,230.8,0" />
-        <Button Name="btnModificarPasajeros" Content="Update" BorderBrush="#FF5722" BorderThickness="2" Background="Transparent" Grid.Row="2" FontSize="16" Width="Auto" Click="btnModificarPasajeros_Click" Grid.ColumnSpan="3" Margin="230,0,230.8,0" />
-        <Button Name="btnEliminarPasajeros" Content="Delete" BorderBrush="#FF5722" BorderThickness="2" Background="Transparent" Grid.Row="3" FontSize="16" Width="Auto" Click="btnEliminarPasajeros_Click" Grid.ColumnSpan="3" Margin="230,0,230.8,0" />
+        <Button Name="btnAgregarPasajeros" Content="Create" BorderBrush="#FF5722" BorderThickness="2" Background="Transparent" Grid.Row="1" FontSize="16" Width="Auto" Click="btnAgregarPasajeros_Click" Margin="32,15,33,10" Grid.Column="1" Height="Auto" />
+        <Button Name="btnModificarPasajeros" Content="Update" BorderBrush="#FF5722" BorderThickness="2" Background="Transparent" Grid.Row="2" FontSize="16" Width="Auto" Click="btnModificarPasajeros_Click" Margin="32,10,33,16" Grid.Column="1" Height="Auto" />
+        <Button Name="btnEliminarPasajeros" Content="Delete" BorderBrush="#FF5722" BorderThickness="2" Background="Transparent" Grid.Row="3" FontSize="16" Width="Auto" Click="btnEliminarPasajeros_Click" Margin="32,10,33,15" Grid.Column="1" Height="Auto" />
 
 
         <Button Name="btnRegresar"  BorderBrush="#FF5722" BorderThickness="2"  Style="{StaticResource MaterialDesignRaisedButton}"   Content="" Foreground="White" ToolTip="Return"
-                Background="Transparent" Height="Auto"  Margin="968,541,118,8" FontFamily="helvetica" FontSize="20" Click="btnRegresar_Click"  />
+                Background="Transparent" Height="Auto"   FontFamily="helvetica" FontSize="20" Grid.Column="1" Grid.Row="5" Margin="32,17,33,6"  />
 
-        <materialDesign:PackIcon Kind="ArrowCollapseLeft" Width="61" Height="30" Foreground="White" Margin="981,543,0,0" RenderTransformOrigin="2.975,0.321"/>
+        <materialDesign:PackIcon Kind="ArrowCollapseLeft" Width="61" Height="30" Foreground="White"  RenderTransformOrigin="2.975,0.321" Grid.Column="1" Margin="68,23,0,0" Grid.Row="5"/>
         <Button Name="btnSiguiente"  BorderBrush="#FF5722" BorderThickness="2"  Style="{StaticResource MaterialDesignRaisedButton}"   Content="" Foreground="White" ToolTip="Return"
-                Background="Transparent" Height="43"   FontFamily="helvetica" FontSize="20" Margin="32,10,33,0" Grid.Row="4" Grid.Column="1"  VerticalAlignment="Top"  />
+                Background="Transparent" Height="41"   FontFamily="helvetica" FontSize="20"  Grid.Row="4" Grid.Column="1"  VerticalAlignment="Top" Margin="32,10,33,0"  />
 
         <materialDesign:PackIcon Kind="ArrowCollapseRight" Width="57" Height="30" Foreground="White" Grid.Column="1" Margin="68,10,0,0" Grid.Row="4"/>
 

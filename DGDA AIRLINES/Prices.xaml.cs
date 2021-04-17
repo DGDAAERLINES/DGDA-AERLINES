@@ -244,7 +244,7 @@ namespace DGDA_AIRLINES
             try
             {
                 // Obtiene los valores del precio
-                precio.idVuelo = idVuelo;
+               
                 precio.idClase = 2;
                 precio.Precio = Convert.ToDouble(txtPrice.Text);
 
@@ -267,7 +267,7 @@ namespace DGDA_AIRLINES
             try
             {
                 // Obtiene los valores del precio
-                precio.idVuelo = idVuelo;
+               
                 precio.idClase = 1;
                 precio.Precio = Convert.ToDouble(txtPrice.Text);
 
@@ -282,6 +282,26 @@ namespace DGDA_AIRLINES
                 MessageBox.Show("Error selecting this price");
                 Console.WriteLine(ex.Message);
             }
+        }
+
+        private void btnRegresar_Click(object sender, RoutedEventArgs e)
+        {
+            Reservation reservacion = new Reservation();
+            reservacion.Show();
+            Close();
+        }
+
+        private void btnexit_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
+
+        private void btnSiguiente_Click(object sender, RoutedEventArgs e)
+        {
+            CRUD_Pasajeros Cpasajeros= new CRUD_Pasajeros();
+            Cpasajeros.Show();
+            Close();
+
         }
     }
 }
