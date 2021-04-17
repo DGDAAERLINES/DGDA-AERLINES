@@ -44,14 +44,14 @@ namespace DGDA_AIRLINES
                 {
                     // Verificar que la contraseña ingresada es igual a la contraseña
                     // almacenada en la base de datos
-                    if (elUsuario.Password == txtPassword.Password && elUsuario.Estado)
+                    if (elUsuario.Password == txtPassword.Password && elUsuario.Estado == EstadosUsuario.Active)
                     {
                         // Mostrar el formulario de menú principal
                         Menu MenuPrincipal = new Menu();
                         MenuPrincipal.Show();
                         Close();
                     }
-                    else if (!elUsuario.Estado)
+                    else if (elUsuario.Estado == EstadosUsuario.Inactive)
                         MessageBox.Show("usuario innactivo");
                     else
                         MessageBox.Show("El usuario/contraseña incorrecta. Favor verificar.");

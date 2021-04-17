@@ -8,6 +8,7 @@ using System.Data.SqlClient;
 using System.Configuration;
 
 namespace DGDA_AIRLINES
+
 {
     class Usuario
     {
@@ -24,12 +25,12 @@ namespace DGDA_AIRLINES
 
         public string Password { get; set; }
 
-        public bool Estado { get; set; }
+        public EstadosUsuario Estado { get; set; }
 
         // Constructores
         public Usuario() { }
 
-        public Usuario(string nombreCompleto, string username, string password, bool estado)
+        public Usuario(string nombreCompleto, string username, string password, EstadosUsuario estado)
         {
             NombreCompleto = nombreCompleto;
             Username = username;
@@ -74,7 +75,7 @@ namespace DGDA_AIRLINES
                         usuario.NombreCompleto = rdr["nombreCompleto"].ToString();
                         usuario.Username = rdr["username"].ToString();
                         usuario.Password = rdr["password"].ToString();
-                        usuario.Estado = Convert.ToBoolean(rdr["estado"]);
+                        usuario.Estado = (EstadosUsuario)Convert.ToChar(rdr["estado"].ToString().Substring(0, 1));
                     }
                 }
 
