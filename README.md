@@ -27,4 +27,4 @@ Danilo Zavala [@Danzam97](https://github.com/Danzam97)
 Sven Rodriguez [@svenrod09](https://github.com/svenrod09)
 
 **Nota**
-La funcion de la webcam de emisión de pasaporte funcionó mientras se probaba individualmente. Sin embargo, una vez añadida al codigo esta no funcionó sin explicación a pesar de que se utilizo el mismo codigo. Se añadio la funcion aparte en la rama feature-webcam.
+La funcion de la webcam de emisión de pasaporte funcionó mientras se probaba individualmente. Sin embargo, una vez añadida al proyecto esta no funcionó sin explicación a pesar de que se utilizo el mismo código. Se añadio la sección de emisión de pasaporte con la función de la webcam funcional en la rama feature-webcam.
